@@ -12,7 +12,10 @@ export const ButtonBox = styled.div`
   ${commonButtonBox}
 `;
 
-export const CardBox = styled(UI_CARD)``;
+export const CardBox = styled(UI_CARD)`
+  position: relative;
+  z-index: 10;
+`;
 
 export const CardActions = styled(UI_CARD_ACTIONS)``;
 
@@ -21,5 +24,6 @@ export const CardContent = styled(UI_CARD_CONTENT)`
 `;
 
 export const Typography = styled(commonTypography)`
+  padding: 10px 0;
   text-align: center;
 `;

@@ -18,7 +18,7 @@ const rawValidator = {
   },
   mustBePhone: value =>
     !/^[^A-Za-z]+$/.test(value)
-      ? 'validation_message.must_be_email'
+      ? 'VALIDATION_MESSAGE.MUST_BE_PHONE'
       : undefined,
   shouldBePassword: value =>
     /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{5,}$/.test(value) || !value

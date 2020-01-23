@@ -49,9 +49,9 @@ export const Button = styled(commonButton)`
   }
   background-color: ${props =>
     props.status === "clear"
-      ? props.theme.notification.roman
-      : props.theme.common.fountain_blue} !important;
-  color: ${props => props.theme.common.white} !important;
+      ? props.theme.palette.notification.roman
+      : props.theme.palette.common.fountain_blue} !important;
+  color: ${props => props.theme.palette.common.white} !important;
 
   ${Max.xs`
     width: 100%;

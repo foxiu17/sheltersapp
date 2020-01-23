@@ -19,6 +19,10 @@ const petSchema = new Schema({
     type: String,
     required: false
   },
+  sex: {
+    type: String,
+    required: false
+  },
   shelter: {
     type: Schema.Types.ObjectId,
     ref: "Shelter"
@@ -28,7 +32,17 @@ const petSchema = new Schema({
       type: Schema.Types.ObjectId,
       ref: "Account"
     }
-  ]
+  ],
+  images: {
+    name: {
+      type: String,
+      required: false
+    },
+    publicId: {
+      type: String,
+      required: false
+    }
+  }
 });
 
 module.exports = mongoose.model("Pet", petSchema);

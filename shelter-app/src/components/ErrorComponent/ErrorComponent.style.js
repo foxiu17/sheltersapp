@@ -31,7 +31,9 @@ export const ErrorItem = styled.div`
   `}
 `;
 
-export const Typography = styled(UI_TYPOGRAPHY)``;
+export const Typography = styled(UI_TYPOGRAPHY)`
+  color: #fff;
+`;
 
 export const Image = styled.img`
   max-width: 150px;

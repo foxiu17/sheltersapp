@@ -43,8 +43,9 @@ export const ButtonBox = styled.div`
 `;
 
 export const Button = styled(commonButton)`
-  background-color: ${props => props.theme.common.fountain_blue} !important;
-  color: ${props => props.theme.common.white} !important;
+  background-color: ${props =>
+    props.theme.palette.common.fountain_blue} !important;
+  color: ${props => props.theme.palette.common.white} !important;
 `;
 
 export const ExtraText = styled.span`
@@ -74,5 +75,5 @@ export const ErrorLabel = styled.span`
 `;
 
 export const Link = styled(commonLink)`
-  color: ${props => props.theme.common.fountain_blue};
+  color: ${props => props.theme.palette.common.fountain_blue};
 `;

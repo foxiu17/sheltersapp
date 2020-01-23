@@ -29,10 +29,11 @@ const AddShelterPage = ({ intl }) => {
     setIsSnackbarOpen(false);
   };
 
-  const handleAddShelter = values => {
+  const handleAddShelter = (values, currentImages) => {
     addShelter({
       variables: {
-        ...values
+        ...values,
+        images: currentImages
       },
       onCompleted: setSnackbarMessage({
         message: `${intl.formatMessage({

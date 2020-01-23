@@ -11,7 +11,7 @@ import SignUpPanel from "../../components/SignUpPanel";
 import Sidebar from "../../components/Sidebar";
 import Background from "../../components/Background";
 
-import bg from "../../assets/images/backgrounds/bg-5.jpg";
+import bg from "../../assets/images/backgrounds/bg-office-4.jpg";
 
 import { Container, Grid } from "../../assets/common/Layout.style";
 
@@ -22,7 +22,12 @@ const SignUpPage = ({ history, intl }) => {
 
   const handleSubmit = (values, createAccount) => {
     createAccount({
-      variables: { email: values.email, password: values.password },
+      variables: {
+        email: values.email,
+        name: values.name,
+        surname: values.surname,
+        password: values.password
+      },
       onCompleted: setIsMutationSuccess(true)
     });
   };

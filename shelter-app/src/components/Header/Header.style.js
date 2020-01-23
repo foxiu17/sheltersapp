@@ -43,6 +43,25 @@ export const Typography = styled(UI_TYPOGRAPHY)`
   top: 50%;
   left: 100px;
   transform: translateY(-50%);
-  font-family: 'Ibarra Real Nova', serif !important;
+  font-family: "Ibarra Real Nova", serif !important;
   font-weight: 600 !important;
 `;
+
+export const Span = styled.span`
+  margin-right: ${props => (props.margin === "true" ? "5px" : "0")};
+`;
+
+export const ProfileBox = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  padding: 10px 0 20px;
+`;
+
+export const ProfileItem = styled.div`
+  width: 100%;
+  text-align: center;
+`;
+
+export const ProfileImage = styled.img``;

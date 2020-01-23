@@ -108,7 +108,7 @@ const LoginPanel = ({ onSubmit = () => {}, error, intl }) => {
             <ButtonBox>
               <ExtraText>
                 <FormattedMessage id="LOG_IN_PAGE.REDIRECT" />
-                <Link to={signUpUrl} theme={theme.palette}>
+                <Link to={signUpUrl} theme={theme}>
                   <FormattedMessage id="HEADER.REGISTRATION" />!
                 </Link>
               </ExtraText>
@@ -116,7 +116,7 @@ const LoginPanel = ({ onSubmit = () => {}, error, intl }) => {
                 type="submit"
                 variant="contained"
                 color="inherit"
-                theme={theme.palette}
+                theme={theme}
                 disabled={submitting || pristine || invalid}
               >
                 <FormattedMessage id="LOG_IN_PAGE.SUBMIT_BTN" />

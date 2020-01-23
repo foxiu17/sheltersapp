@@ -56,7 +56,7 @@ const adminNavLinks = [
     icon: 3
   },
   {
-    title: "SIDEBAR.ADD_TITLE",
+    title: "SIDEBAR.MANAGE",
     url: "/add-page",
     icon: 4
   }

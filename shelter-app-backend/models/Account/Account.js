@@ -15,6 +15,10 @@ const accountSchema = new Schema({
     type: String,
     required: false
   },
+  surname: {
+    type: String,
+    required: false
+  },
   password: {
     type: String,
     required: true

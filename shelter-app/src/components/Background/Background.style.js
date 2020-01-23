@@ -12,7 +12,7 @@ export const Content = styled.div`
   border: 1px solid #000;
   background-image: url(${props => (props.background ? props.background : "")});
   background-size: cover;
-  background-color: #6BC2BB;
+  background-color: #C3FEFC;
   background-position: center center;
   width: 100%;
   min-height: calc(100vh - 70px);

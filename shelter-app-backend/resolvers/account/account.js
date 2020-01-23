@@ -17,6 +17,7 @@ module.exports = {
           account = new Account({
             email: args.email,
             name: args.name,
+            surname: args.surname,
             password: hashedPassword,
             type: 2
           });
@@ -25,6 +26,7 @@ module.exports = {
           account = new Account({
             email: args.email,
             name: args.name,
+            surname: args.surname,
             password: hashedPassword,
             type: 1
           });
@@ -38,13 +40,38 @@ module.exports = {
         throw err;
       });
   },
-  
+  editAccount: async ({ email, newPassword, oldPassword }) => {
+    const account = await Account.findOne({ email: email });
+
+    if (!account) return { done: false };
+
+    const isPasswordCorrect = await bcrypt.compare(
+      oldPassword,
+      account.password
+    );
+
+    if (!isPasswordCorrect) return { done: false };
+
+    return bcrypt.hash(newPassword, 12).then(async hashedPassword => {
+      return await Account.findOneAndUpdate(
+        { email },
+        { password: hashedPassword }
+      )
+        .then(result => {
+          return { done: true };
+        })
+        .catch(err => {
+          return { done: false };
+        });
+    });
+  },
   login: async ({ email, password }) => {
     const user = await Account.findOne({ email: email });
 
     if (!user) {
       throw new Error("User doesn't exist!");
     }
+
     const passwordCorrect = await bcrypt.compare(password, user.password);
 
     if (!passwordCorrect) {
@@ -63,7 +90,10 @@ module.exports = {
       userID: user.id,
       token: token,
       tokenExpiration: 1,
-      type: user.type
+      type: user.type,
+      name: user.name,
+      surname: user.surname,
+      email: user.email
     };
   }
 };

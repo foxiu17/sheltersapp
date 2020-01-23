@@ -2,6 +2,7 @@
 import React from "react";
 import { withRouter } from "react-router";
 import { makeStyles } from "@material-ui/core/styles";
+import withWidth, { isWidthUp } from "@material-ui/core/withWidth";
 import clsx from "clsx";
 import { FormattedMessage, injectIntl } from "react-intl";
 
@@ -18,9 +19,12 @@ import {
   AccountCircle,
   Menu,
   Link,
-  Typography
+  Typography,
+  Span,
+  ProfileBox,
+  ProfileItem
 } from "./Header.style";
-import { Grid } from "@material-ui/core";
+import { Grid, Divider } from "@material-ui/core";
 
 const drawerWidth = 240;
 
@@ -42,7 +46,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const Header = ({ sidebarOpen, setIsSidebarOpen, mainTitle, history }) => {
+const Header = ({ mainTitle, history, width }) => {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const [auth, dispatch] = useStateContextAuthorization();
@@ -65,8 +69,7 @@ const Header = ({ sidebarOpen, setIsSidebarOpen, mainTitle, history }) => {
         >
           <Toolbar>
             <Grid container justify="space-between">
-              <Grid item>
-              </Grid>
+              <Grid item></Grid>
               {mainTitle && (
                 <Typography variant="caption" component="h6">
                   {mainTitle}
@@ -74,6 +77,16 @@ const Header = ({ sidebarOpen, setIsSidebarOpen, mainTitle, history }) => {
               )}
               <Grid item>
                 <div>
+                  {Object.getOwnPropertyNames(auth).length !== 0 &&
+                    auth.name &&
+                    auth.surname &&
+                    (isWidthUp("sm", width) ? (
+                      <Span margin="true">{`${auth.name}`}</Span>
+                    ) : (
+                      <Span margin="true">
+                        {`${auth.name.charAt(0)}${auth.surname.charAt(0)}`}
+                      </Span>
+                    ))}
                   <IconButton
                     aria-label="account of current user"
                     aria-controls="menu-appbar"
@@ -100,6 +113,27 @@ const Header = ({ sidebarOpen, setIsSidebarOpen, mainTitle, history }) => {
                   >
                     {Object.getOwnPropertyNames(auth).length !== 0 ? (
                       <div>
+                        <ProfileBox>
+                          <ProfileItem>
+                            <AccountCircle />
+                          </ProfileItem>
+                          <ProfileItem>
+                            {auth.name && auth.surname ? (
+                              <Span>{`${auth.name} ${auth.surname}`}</Span>
+                            ) : (
+                              <Span>{auth.email}</Span>
+                            )}
+                          </ProfileItem>
+                        </ProfileBox>
+                        <Divider />
+                        <MenuItem
+                          onClick={() => {
+                            handleClose();
+                            history.push(`/edit-account/${auth.email}`);
+                          }}
+                        >
+                          <FormattedMessage id="HEADER.EDIT_ACCOUNT" />
+                        </MenuItem>
                         <MenuItem
                           onClick={() => {
                             dispatch({
@@ -137,4 +171,4 @@ const Header = ({ sidebarOpen, setIsSidebarOpen, mainTitle, history }) => {
   );
 };
 
-export default withRouter(injectIntl(Header));
+export default withRouter(injectIntl(withWidth()(Header)));

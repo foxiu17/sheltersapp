@@ -16,10 +16,6 @@ export const ButtonBox = styled.div`
 
 export const Card = styled(UI_CARD)`
   position: relative;
-
-  .MuiGrid-container > .MuiPaper-root {
-    background-color: ${props => props.theme.palette.common.white_8} !important;
-  }
   z-index: 10;
 `;
 

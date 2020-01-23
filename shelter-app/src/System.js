@@ -1,5 +1,5 @@
 import React from "react";
-import { Switch, Route, Redirect, withRouter } from "react-router";
+import { Switch, Route, withRouter } from "react-router";
 import { useStateContextAuthorization } from "./context/auth-context";
 
 import routes from "./routes/routes";
@@ -52,8 +52,6 @@ const System = () => {
                 />
               );
             })}
-        {Object.getOwnPropertyNames(auth).length !== 0 &&
-          auth.tokenValidate && <Redirect to="/" />}
       </Switch>
     </>
   );

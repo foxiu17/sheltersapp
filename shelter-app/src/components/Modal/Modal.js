@@ -1,6 +1,8 @@
 import React from "react";
 import { injectIntl, FormattedMessage } from "react-intl";
 
+import { useTheme } from "../../ThemeContext";
+
 import {
   Dialog,
   DialogActions,
@@ -18,6 +20,7 @@ const Modal = ({
   modalTitle,
   modalText
 }) => {
+  const theme = useTheme();
   return (
     <Dialog
       open={open}
@@ -34,10 +37,15 @@ const Modal = ({
         </DialogContentText>
       </DialogContent>
       <DialogActions>
-        <Button onClick={handleClose} color="primary">
+        <Button onClick={handleClose} color="primary" theme={theme}>
           <FormattedMessage id="APP_MODAL.CANCEL" />
         </Button>
-        <Button onClick={handleConfirmAction} color="primary" autoFocus>
+        <Button
+          onClick={handleConfirmAction}
+          color="primary"
+          theme={theme}
+          autoFocus
+        >
           <FormattedMessage id="APP_MODAL.CONFIRM" />
         </Button>
       </DialogActions>

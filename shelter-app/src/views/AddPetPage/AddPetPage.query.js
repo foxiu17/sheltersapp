@@ -6,14 +6,20 @@ export const ADD_PET = gql`
     $name: String
     $age: Int
     $description: String
+    $sex: String
     $shelter: ID
+    $images: ImageInput
+    
   ) {
     addPet(
       type: $type
       name: $name
       age: $age
       description: $description
+      sex: $sex
       shelter: $shelter
+      images: $images
+
     ) {
       name
       type

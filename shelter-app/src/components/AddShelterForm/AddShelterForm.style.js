@@ -22,7 +22,9 @@ export const InputBox = styled.div`
   width: 50%;
   padding: 5px 10px;
 
-  &:last-of-type {
+  &:last-of-type,
+  &:nth-of-type(5),
+  &:nth-of-type(8) {
     width: 100%;
   }
 
@@ -41,8 +43,9 @@ export const ButtonBox = styled.div`
 `;
 
 export const Button = styled(commonButton)`
-  background-color: ${props => props.theme.common.fountain_blue} !important;
-  color: ${props => props.theme.common.white} !important;
+  background-color: ${props =>
+    props.theme.palette.common.fountain_blue} !important;
+  color: ${props => props.theme.palette.common.white} !important;
 `;
 
 export const ExtraText = styled.span`
@@ -59,4 +62,9 @@ export const ErrorBox = styled.div`
 export const ErrorNotification = styled.div`
   ${commonErrorNotification};
   color: ${props => props.theme.palette.common.white};
+`;
+
+export const ErrorLabel = styled.span`
+  ${commonErrorNotification};
+  color: ${props => props.theme.palette.notification.roman};
 `;

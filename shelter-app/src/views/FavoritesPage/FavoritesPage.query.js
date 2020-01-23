@@ -23,6 +23,7 @@ export const GET_FAVORITE_PETS = gql`
       age
       description
       shelter {
+        _id
         name
         city
       }

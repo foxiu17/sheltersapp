@@ -1,10 +1,30 @@
 import React from "react";
 import { injectIntl, FormattedMessage } from "react-intl";
+import { withRouter } from "react-router";
 
-import { Grid, Typography, Span, Strong } from "./ProfilePanel.style";
+import { useTheme } from "../../ThemeContext";
 
-const ProfilePanel = ({ data }) => {
+import {
+  petDetailsFullUrl,
+  petsPageUrl,
+  shelterDetailsFullUrl,
+  shelterDetailsUrl
+} from "../../assets/const/url";
+
+import {
+  Grid,
+  Typography,
+  Span,
+  Strong,
+  ButtonBox,
+  Button,
+  Link
+} from "./ProfilePanel.style";
+
+const ProfilePanel = ({ data, history, match }) => {
+  const theme = useTheme();
   const {
+    _id,
     name,
     type,
     shelter,
@@ -12,6 +32,8 @@ const ProfilePanel = ({ data }) => {
     city,
     age,
     description,
+    phone,
+    address,
     voivodeship
   } = data;
   return (
@@ -50,6 +72,18 @@ const ProfilePanel = ({ data }) => {
               </Strong>
               {shelter.city}
             </Span>
+            <Span>
+              <Strong>
+                <FormattedMessage id="APP_LABEL.SHELTER_ADDRESS" />:{" "}
+              </Strong>
+              {shelter.address}
+            </Span>
+            <Span>
+              <Strong>
+                <FormattedMessage id="APP_LABEL.SHELTER_PHONE" />:{" "}
+              </Strong>
+              {shelter.phone}
+            </Span>
           </>
         )}
         {voivodeship && (
@@ -66,6 +100,22 @@ const ProfilePanel = ({ data }) => {
               <FormattedMessage id="APP_LABEL.CITY" />:{" "}
             </Strong>
             {city}
+          </Span>
+        )}
+        {address && (
+          <Span>
+            <Strong>
+              <FormattedMessage id="APP_LABEL.ADDRESS" />:{" "}
+            </Strong>
+            {address}
+          </Span>
+        )}
+        {phone && (
+          <Span>
+            <Strong>
+              <FormattedMessage id="APP_LABEL.PHONE" />:{" "}
+            </Strong>
+            {phone}
           </Span>
         )}
         {pets && (
@@ -86,8 +136,31 @@ const ProfilePanel = ({ data }) => {
         )}
         {description && <Span desc="true">{description}</Span>}
       </Grid>
+      <Grid item xs={12}>
+        <ButtonBox>
+          <Button
+            status="cancel"
+            theme={theme}
+            onClick={() => history.goBack()}
+          >
+            <FormattedMessage id="APP_MODAL.CANCEL" />
+          </Button>
+          <Button theme={theme}>
+            {match.path === petDetailsFullUrl && (
+              <Link to={`${shelterDetailsUrl}/${shelter._id}`} theme={theme}>
+                <FormattedMessage id="APP_BUTTONS.GO_SHELTER" />
+              </Link>
+            )}
+            {match.path === shelterDetailsFullUrl && (
+              <Link to={`${petsPageUrl}/${_id}`} theme={theme}>
+                <FormattedMessage id="APP_BUTTONS.GO_PETS" />
+              </Link>
+            )}
+          </Button>
+        </ButtonBox>
+      </Grid>
     </Grid>
   );
 };
 
-export default injectIntl(ProfilePanel);
+export default withRouter(injectIntl(ProfilePanel));

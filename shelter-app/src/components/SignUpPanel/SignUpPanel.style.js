@@ -17,17 +17,25 @@ import {
 
 export const Paper = styled(UI_PAPER)`
   position: relative;
-  top: 10%;
+  margin-top: 20px;
   background-color: rgba(255, 255, 255, 0.85) !important;
   z-index: 10;
 `;
 
 export const InputBox = styled.div`
-  ${commonInputBox}
+  ${commonInputBox};
+  width: 100%;
+
+  &:nth-of-type(1),
+  &:nth-of-type(2) {
+    width: 50%;
+  }
 `;
 
 export const FormBox = styled.div`
-  ${commonFormBox}
+  ${commonFormBox};
+  display: flex;
+  flex-wrap: wrap;
 `;
 
 export const ButtonBox = styled.div`
@@ -35,8 +43,9 @@ export const ButtonBox = styled.div`
 `;
 
 export const Button = styled(commonButton)`
-  background-color: ${props => props.theme.common.fountain_blue} !important;
-  color: ${props => props.theme.common.white} !important;
+  background-color: ${props =>
+    props.theme.palette.common.fountain_blue} !important;
+  color: ${props => props.theme.palette.common.white} !important;
 `;
 
 export const ErrorBox = styled.div`

@@ -9,6 +9,7 @@ export const GET_PETS = gql`
       age
       description
       shelter {
+        _id
         voivodeship
         city
         name

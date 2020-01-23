@@ -5,6 +5,7 @@ const theme = {
       white_8: "rgba(255, 255, 255, 0.85)",
       black: "#000",
       black_2: "rgba(0, 0, 0, 0.23)",
+      black_5: "rgba(0, 0, 0, 0.54)",
       red: "#ff0000",
       blaze_orange: "#FF6600",
       robins_egg_blue: "#00CCBB",

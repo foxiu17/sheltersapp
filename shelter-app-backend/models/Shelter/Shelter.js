@@ -27,10 +27,18 @@ const shelterSchema = new Schema({
     type: String,
     required: false
   },
+  phone: {
+    type: String,
+    required: false
+  },
+  address: {
+    type: String,
+    required: false
+  },
   pets: [
     {
       type: Schema.Types.ObjectId,
-      ref: 'Pet'
+      ref: "Pet"
     }
   ]
 });

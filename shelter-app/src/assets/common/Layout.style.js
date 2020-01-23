@@ -7,6 +7,7 @@ import { Max } from "../../assets/mixins.style";
 import UI_CONTAINER from "@material-ui/core/Container";
 import UI_GRID from "@material-ui/core/Grid";
 import UI_TYPOGRAPHY from "@material-ui/core/Typography";
+import UI_PAPER from "@material-ui/core/Paper";
 
 export const Container = styled(UI_CONTAINER)`
   position: relative;
@@ -34,11 +35,16 @@ export const Typography = styled(UI_TYPOGRAPHY)`
   text-align: ${props => (props.position ? props.position : "left")};
 `;
 
+export const Paper = styled(UI_PAPER)`
+  color: ${props => props.theme.primary.main};
+  padding: 60px 40px;
+`;
+
 export const Span = css``;
 
 export const Link = styled(RouterLink)`
   padding-left: 5px;
-  color: ${props => props.theme.primary.main};
+  color: ${props => props.theme.palette.primary.main};
   text-decoration: none;
 `;
 

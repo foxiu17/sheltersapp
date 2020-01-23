@@ -7,6 +7,8 @@ export const GET_SHELTERS = gql`
       name
       city
       description
+      phone
+      address
     }
   }
 `;

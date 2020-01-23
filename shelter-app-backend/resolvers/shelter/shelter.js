@@ -49,7 +49,9 @@ module.exports = {
       lng: args.lng,
       voivodeship: args.voivodeship,
       city: args.city,
-      description: args.description
+      description: args.description,
+      phone: args.phone,
+      address: args.address
     });
 
     return shelter.save();

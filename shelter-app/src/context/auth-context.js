@@ -22,12 +22,23 @@ const authorizationReducer = (state, action) => {
       return state;
     }
     case "login": {
-      const { userID, token, tokenExpiration, type } = action.payload;
+      const {
+        userID,
+        token,
+        tokenExpiration,
+        type,
+        name,
+        surname,
+        email
+      } = action.payload;
       const user = {
         userID,
         token,
         tokenExpiration,
-        type
+        type,
+        name,
+        surname,
+        email
       };
       localStorage.setItem(localStorageName, JSON.stringify(user));
       return { ...user, tokenValidate: true };

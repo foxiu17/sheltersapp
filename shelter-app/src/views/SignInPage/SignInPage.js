@@ -14,13 +14,13 @@ import Sidebar from "../../components/Sidebar";
 import Loader from "../../components/Loader";
 import Background from "../../components/Background";
 
-import bg from "../../assets/images/backgrounds/bg-5.jpg";
+import bg from "../../assets/images/backgrounds/bg-office-1.jpg";
 
 import { Container, Grid } from "../../assets/common/Layout.style";
 
 import { LOG_IN } from "../../views/SignInPage/SignInPage.query";
 
-const SignInPage = ({ intl }) => {
+const SignInPage = ({ intl, history }) => {
   const theme = useTheme();
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [, dispatch] = useStateContextAuthorization();
@@ -41,6 +41,9 @@ const SignInPage = ({ intl }) => {
 
   useEffect(() => {
     if (data && data !== undefined) letLogIn();
+    if (data !== undefined) {
+      history.push("/");
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data]);
 

@@ -4,6 +4,8 @@ import { Form, Field } from "react-final-form";
 
 import { useTheme } from "../../ThemeContext";
 
+import MyDropzone from "../Dropzone";
+
 import {
   Paper,
   InputBox,
@@ -21,18 +23,31 @@ const AddPetForm = ({
   shelters = [],
   loading
 }) => {
+  // const [currentImages, setCurrentImages] = useState([]);
+  const [currentImages, setCurrentImages] = useState({
+    name: "",
+    file: null
+  });
   const [shelter, setShelter] = useState("");
+  const [petSex, setPetSex] = useState("");
   const theme = useTheme();
 
   const handleChange = event => {
-    setShelter(event.target.value);
+    const name = event.target.name;
+    const value = event.target.value;
+
+    if (name === "shelter") {
+      setShelter(value);
+    } else if (name === "sex") {
+      setPetSex(value);
+    }
   };
 
   return (
     <Paper color="inherit">
       <Form
         onSubmit={(values, form) => {
-          onSubmit(values);
+          onSubmit(values, shelter, petSex, currentImages);
           setTimeout(() => {
             form.reset();
             setShelter("");
@@ -46,7 +61,11 @@ const AddPetForm = ({
           values,
           invalid
         }) => (
-          <form onSubmit={handleSubmit} autoComplete="off">
+          <form
+            onSubmit={handleSubmit}
+            autoComplete="off"
+            encType="multipart/form-data"
+          >
             <FormBox>
               <InputBox>
                 <Field name="type">
@@ -63,6 +82,38 @@ const AddPetForm = ({
                         margin="normal"
                       />
                       {meta.touched && meta.error && <span>{meta.error}</span>}
+                    </>
+                  )}
+                </Field>
+              </InputBox>
+              <InputBox>
+                <Field name="sex" initialValue={petSex}>
+                  {({ input, meta }) => (
+                    <>
+                      <TextField
+                        {...input}
+                        theme={theme}
+                        select
+                        label={intl.formatMessage({
+                          id: "APP_LABEL.SEX"
+                        })}
+                        value={petSex}
+                        onChange={handleChange}
+                        SelectProps={{
+                          native: true
+                        }}
+                        variant="outlined"
+                        margin="normal"
+                      >
+                        <option value=""></option>
+
+                        <option value="female">
+                          {intl.formatMessage({ id: "APP_LABEL.FEMALE" })}
+                        </option>
+                        <option value="male">
+                          {intl.formatMessage({ id: "APP_LABEL.MALE" })}
+                        </option>
+                      </TextField>
                     </>
                   )}
                 </Field>
@@ -136,6 +187,16 @@ const AddPetForm = ({
                 </Field>
               </InputBox>
               <InputBox>
+                <Field name="files">
+                  {({ input, meta }) => (
+                    <MyDropzone
+                      currentImages={currentImages}
+                      setCurrentImages={setCurrentImages}
+                    />
+                  )}
+                </Field>
+              </InputBox>
+              <InputBox>
                 <Field name="description">
                   {({ input, meta }) => (
                     <>
@@ -162,10 +223,12 @@ const AddPetForm = ({
                 type="submit"
                 variant="contained"
                 color="inherit"
-                theme={theme.palette}
+                theme={theme}
                 disabled={submitting || pristine || invalid}
               >
-                <FormattedMessage id={!loading ? "ADD_PAGE.ADD_PET_BTN" : "APP_STATE.LOADING"} />
+                <FormattedMessage
+                  id={!loading ? "ADD_PAGE.ADD_PET_BTN" : "APP_STATE.LOADING"}
+                />
               </Button>
             </ButtonBox>
           </form>

@@ -4,20 +4,26 @@ import { Form, Field } from "react-final-form";
 
 import { useTheme } from "../../ThemeContext";
 
+import validator, { composeValidators } from "../Validation/";
+
 import { voivodeships } from "../../assets/const/form";
+
+import MyDropzone from "../Dropzone";
 
 import {
   Paper,
   InputBox,
   FormBox,
   ButtonBox,
-  Button
+  Button,
+  ErrorLabel
 } from "./AddShelterForm.style";
 
 import { TextField } from "../../assets/common/Input.style";
 
 const AddShelterForm = ({ onSubmit = () => {}, intl, loading }) => {
   const theme = useTheme();
+  const [currentImages, setCurrentImages] = useState([]);
   const [voivodeship, setVoivodeship] = useState("");
 
   const handleChange = event => {
@@ -30,7 +36,7 @@ const AddShelterForm = ({ onSubmit = () => {}, intl, loading }) => {
     <Paper color="inherit">
       <Form
         onSubmit={(values, form) => {
-          onSubmit(values);
+          onSubmit(values, currentImages);
           setTimeout(() => {
             form.reset();
             setVoivodeship("");
@@ -99,6 +105,30 @@ const AddShelterForm = ({ onSubmit = () => {}, intl, loading }) => {
                 </Field>
               </InputBox>
               <InputBox>
+                <Field
+                  name="phone"
+                  validate={composeValidators(validator.mustBePhone)}
+                >
+                  {({ input, meta }) => (
+                    <>
+                      <TextField
+                        {...input}
+                        theme={theme}
+                        label={intl.formatMessage({ id: "APP_LABEL.PHONE" })}
+                        type="text"
+                        error={meta.touched && meta.error ? true : false}
+                        variant="outlined"
+                        margin="normal"
+                        autoComplete="off"
+                      />
+                      {meta.touched && meta.error && (
+                        <ErrorLabel theme={theme}>{meta.error}</ErrorLabel>
+                      )}
+                    </>
+                  )}
+                </Field>
+              </InputBox>
+              <InputBox>
                 <Field name="city">
                   {({ input, meta }) => (
                     <>
@@ -112,6 +142,26 @@ const AddShelterForm = ({ onSubmit = () => {}, intl, loading }) => {
                         autoComplete="off"
                       />
                       {meta.touched && meta.error && <span>{meta.error}</span>}
+                    </>
+                  )}
+                </Field>
+              </InputBox>
+              <InputBox>
+                <Field name="address">
+                  {({ input, meta }) => (
+                    <>
+                      <TextField
+                        {...input}
+                        theme={theme}
+                        label={intl.formatMessage({ id: "APP_LABEL.ADDRESS" })}
+                        type="text"
+                        variant="outlined"
+                        margin="normal"
+                        autoComplete="off"
+                      />
+                      {meta.touched && meta.error && (
+                        <ErrorLabel theme={theme}>{meta.error}</ErrorLabel>
+                      )}
                     </>
                   )}
                 </Field>
@@ -153,6 +203,16 @@ const AddShelterForm = ({ onSubmit = () => {}, intl, loading }) => {
                 </Field>
               </InputBox>
               <InputBox>
+                <Field name="files">
+                  {({ input, meta }) => (
+                    <MyDropzone
+                      currentImages={currentImages}
+                      setCurrentImages={setCurrentImages}
+                    />
+                  )}
+                </Field>
+              </InputBox>
+              <InputBox>
                 <Field name="description">
                   {({ input, meta }) => (
                     <>
@@ -179,7 +239,7 @@ const AddShelterForm = ({ onSubmit = () => {}, intl, loading }) => {
                 type="submit"
                 variant="contained"
                 color="inherit"
-                theme={theme.palette}
+                theme={theme}
                 disabled={submitting || pristine || invalid}
               >
                 <FormattedMessage

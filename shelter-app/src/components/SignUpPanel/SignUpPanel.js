@@ -75,6 +75,48 @@ const SignUpPanel = ({ onSubmit = () => {}, intl }) => {
           <form onSubmit={handleSubmit} autoComplete="off">
             <FormBox>
               <InputBox>
+                <Field name="name">
+                  {({ input, meta }) => (
+                    <>
+                      <TextField
+                        {...input}
+                        theme={theme}
+                        label={intl.formatMessage({ id: "LOG_IN_PAGE.NAME" })}
+                        type="text"
+                        variant="outlined"
+                        error={meta.touched && meta.error ? true : false}
+                        margin="normal"
+                      />
+                      {meta.touched && meta.error && (
+                        <ErrorLabel theme={theme}>{meta.error}</ErrorLabel>
+                      )}
+                    </>
+                  )}
+                </Field>
+              </InputBox>
+              <InputBox>
+                <Field name="surname">
+                  {({ input, meta }) => (
+                    <>
+                      <TextField
+                        {...input}
+                        theme={theme}
+                        label={intl.formatMessage({
+                          id: "LOG_IN_PAGE.SURNAME"
+                        })}
+                        type="text"
+                        variant="outlined"
+                        error={meta.touched && meta.error ? true : false}
+                        margin="normal"
+                      />
+                      {meta.touched && meta.error && (
+                        <ErrorLabel theme={theme}>{meta.error}</ErrorLabel>
+                      )}
+                    </>
+                  )}
+                </Field>
+              </InputBox>
+              <InputBox>
                 <Field
                   name="email"
                   validate={composeValidators(
@@ -192,7 +234,7 @@ const SignUpPanel = ({ onSubmit = () => {}, intl }) => {
             </FormBox>
             <ButtonBox>
               <Button
-                theme={theme.palette}
+                theme={theme}
                 type="submit"
                 onClick={() => {
                   if (!invalid) {

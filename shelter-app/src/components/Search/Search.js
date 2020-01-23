@@ -269,7 +269,7 @@ const Search = ({
                 variant="contained"
                 color="inherit"
                 status="clear"
-                theme={theme.palette}
+                theme={theme}
                 onClick={() => handleClearFilter(form)}
               >
                 <FormattedMessage id="APP_BUTTONS.CLEAR_FILTER" />
@@ -278,7 +278,7 @@ const Search = ({
                 type="submit"
                 variant="contained"
                 color="inherit"
-                theme={theme.palette}
+                theme={theme}
                 disabled={
                   !values.name && !genre && !city && !age && !voivodeship
                 }

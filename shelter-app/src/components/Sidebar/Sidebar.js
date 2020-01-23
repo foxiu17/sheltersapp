@@ -30,7 +30,8 @@ import {
   Logo,
   Copyright,
   ChevronLeftIcon,
-  ChevronRightIcon
+  ChevronRightIcon,
+  Link
 } from "./Sidebar.style";
 
 const drawerWidth = 240;
@@ -120,7 +121,9 @@ const Sidebar = ({ open, setIsSidebarOpen, intl, location }) => {
       open={open}
     >
       <LogoBox>
-        <Logo src={logo} alt="wolf logo" />
+        <Link to="/">
+          <Logo src={logo} alt="wolf logo" />
+        </Link>
       </LogoBox>
       <div className={classes.toolbar}>
         <IconButton onClick={() => setIsSidebarOpen(!open)}>

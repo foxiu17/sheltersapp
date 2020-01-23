@@ -9,10 +9,13 @@ export const GET_PET = gql`
       name
       description
       shelter {
+        _id
         name
         city
         voivodeship
         description
+        phone
+        address
       }
     }
   }

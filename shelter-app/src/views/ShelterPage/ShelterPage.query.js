@@ -8,6 +8,8 @@ export const GET_SHELTER = gql`
       voivodeship
       city
       description
+      phone
+      address
       pets {
         _id
         name

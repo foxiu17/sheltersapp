@@ -1,8 +1,7 @@
-import styled , { css }from "styled-components";
+import styled, { css } from "styled-components";
 
 import UI_BUTTON from "@material-ui/core/Button";
-import UI_ICON_BUTTON from '@material-ui/core/IconButton';
-
+import UI_ICON_BUTTON from "@material-ui/core/IconButton";
 
 export const ButtonBox = css`
   display: flex;
@@ -12,7 +11,7 @@ export const ButtonBox = css`
 `;
 
 export const Button = styled(UI_BUTTON)`
-  background-color: blue;
+  background-color: ${props => props.theme.palette.common.fountain_blue};
 `;
 
 export const IconButton = styled(UI_ICON_BUTTON)`

@@ -8,12 +8,20 @@ import AddPetPage from "../views/AddPetPage";
 import AddPage from "../views/AddPage";
 import DashboardShelters from "../views/DashboardShelters";
 import DashboardPets from "../views/DashboardPets";
+import BlackHolePage from "../views/BlackHolePage";
+import EditAccountPage from "../views/EditAccountPage";
 
 const adminRoutes = [
   {
     path: "/",
     name: "ROOT-PAGE",
     component: RootPage,
+    exact: true
+  },
+  {
+    path: "/edit-account/:email",
+    name: "EDIT-ACCOUNT-PAGE",
+    component: EditAccountPage,
     exact: true
   },
   {
@@ -75,6 +83,14 @@ const adminRoutes = [
     name: "ADD-PAGE",
     component: AddPage,
     exact: true
+  },
+
+  // 404
+  {
+    path: "*",
+    name: "BLACK-HOLE-PAGE",
+    component: BlackHolePage,
+    exact: false
   }
 ];
 

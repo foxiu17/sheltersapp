@@ -5,7 +5,11 @@ import { makeStyles } from "@material-ui/core/styles";
 
 import { useTheme } from "../../ThemeContext";
 
-import { petDetailsUrl, shelterDetailsUrl } from "../../assets/const/url";
+import {
+  petDetailsUrl,
+  shelterDetailsUrl,
+  placeholderUrl
+} from "../../assets/const/url";
 
 import {
   Card,
@@ -30,10 +34,11 @@ const useStyles = makeStyles({
 });
 
 const ItemCard = ({ data, match, favorite, handleClick, userType }) => {
+  console.log("data: ", data);
   const classes = useStyles();
   const theme = useTheme();
   const path = match.path;
-  const { item, name, description, _id, __typename } = data;
+  const { images, name, description, _id, __typename } = data;
 
   return (
     <Card theme={theme} className={classes.card}>
@@ -45,8 +50,7 @@ const ItemCard = ({ data, match, favorite, handleClick, userType }) => {
       <CardActionArea>
         <CardMedia
           image={
-            data && item ? item : "https://via.placeholder.com/350"
-            // wywalic do pliku z configami
+            data && images && images.length > 0 ? images[0] : placeholderUrl
           }
           title={data ? name : "Pet"}
         />
@@ -64,7 +68,7 @@ const ItemCard = ({ data, match, favorite, handleClick, userType }) => {
         </CardContent>
       </CardActionArea>
       <CardActions theme={theme}>
-        <Button color="primary">
+        <Button color="primary" theme={theme}>
           <Link
             to={
               path.toString() === "/pets-page" ||
@@ -75,7 +79,7 @@ const ItemCard = ({ data, match, favorite, handleClick, userType }) => {
                 ? `${shelterDetailsUrl}/${_id}`
                 : undefined
             }
-            theme={theme.palette}
+            theme={theme}
           >
             <FormattedMessage id="ITEM_CARD.READ_MORE_BTN" />
           </Link>

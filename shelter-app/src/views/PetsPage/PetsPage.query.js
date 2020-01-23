@@ -22,7 +22,10 @@ export const GET_PETS = gql`
       name
       age
       description
+      sex
+      images
       shelter {
+        _id
         name
         voivodeship
         city

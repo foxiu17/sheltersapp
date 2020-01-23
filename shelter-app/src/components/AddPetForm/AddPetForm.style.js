@@ -8,8 +8,7 @@ import UI_MENU_ITEM from "@material-ui/core/MenuItem";
 
 import {
   Select as commonSelect,
-  FormControl as commonFormControl,
-  TextField as commonTextField
+  FormControl as commonFormControl
 } from "../../assets/common/Input.style";
 import {
   ButtonBox as commonButtonBox,
@@ -30,7 +29,8 @@ export const InputBox = styled.div`
   width: 50%;
   padding: 5px 10px;
 
-  &:last-of-type {
+  &:last-of-type,
+  &:nth-of-type(6) {
     width: 100%;
   }
 
@@ -49,8 +49,9 @@ export const ButtonBox = styled.div`
 `;
 
 export const Button = styled(commonButton)`
-  background-color: ${props => props.theme.common.fountain_blue} !important;
-  color: ${props => props.theme.common.white} !important;
+  background-color: ${props =>
+    props.theme.palette.common.fountain_blue} !important;
+  color: ${props => props.theme.palette.common.white} !important;
 `;
 
 export const ExtraText = styled.span`

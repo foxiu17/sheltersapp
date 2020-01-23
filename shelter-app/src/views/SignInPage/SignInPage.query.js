@@ -7,6 +7,9 @@ export const LOG_IN = gql`
       token
       tokenExpiration
       type
+      name
+      surname
+      email
     }
   }
 `;
