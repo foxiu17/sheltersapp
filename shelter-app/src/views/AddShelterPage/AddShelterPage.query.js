@@ -10,7 +10,7 @@ export const ADD_SHELTER = gql`
     $lat: String
     $lng: String
     $description: String
-    $images: String
+    $images: ImageInput
   ) {
     addShelter(
       name: $name

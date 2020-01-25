@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { injectIntl } from "react-intl";
 import { useMutation } from "@apollo/react-hooks";
+import axios from "axios";
 
 import { useTheme } from "../../ThemeContext";
 
@@ -12,6 +13,7 @@ import Sidebar from "../../components/Sidebar";
 import Footer from "../../components/Footer";
 import AddShelterForm from "../../components/AddShelterForm";
 import Snackbar from "../../components/Snackbar";
+import Background from "../../components/Background";
 
 import { Container, Grid } from "../../assets/common/Layout.style";
 
@@ -29,11 +31,31 @@ const AddShelterPage = ({ intl }) => {
     setIsSnackbarOpen(false);
   };
 
-  const handleAddShelter = (values, currentImages) => {
-    addShelter({
+  const handleAddShelter = async (values, voivodeship, currentImages) => {
+    const { name, file } = currentImages;
+    const formData = new FormData();
+    formData.append("file", file);
+    formData.append(
+      "upload_preset",
+      process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET
+    );
+
+    const config = {
+      headers: { "X-Requested-With": "XMLHttpRequest" }
+    };
+    const response = await axios.post(
+      `https://api.cloudinary.com/v1_1/${process.env.REACT_APP_CLOUDINARY_NAME}/image/upload`,
+      formData,
+      config
+    );
+    await addShelter({
       variables: {
         ...values,
-        images: currentImages
+        voivodeship,
+        images: {
+          name: name,
+          publicId: response.data.public_id
+        }
       },
       onCompleted: setSnackbarMessage({
         message: `${intl.formatMessage({
@@ -65,19 +87,21 @@ const AddShelterPage = ({ intl }) => {
         setIsSidebarOpen={setIsSidebarOpen}
       />
       <Sidebar open={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen} />
-      <Container theme={theme}>
-        <Grid container justify="center">
-          <Grid item xs={12} md={6}>
-            <AddShelterForm onSubmit={handleAddShelter} loading={loading} />
-            <Snackbar
-              text={snackbarMessage.message}
-              open={isSnackbarOpen}
-              handleClose={closeSnackbar}
-              color={snackbarMessage.color}
-            />
+      <Background>
+        <Container theme={theme}>
+          <Grid container justify="center">
+            <Grid item xs={12} md={6}>
+              <AddShelterForm onSubmit={handleAddShelter} loading={loading} />
+              <Snackbar
+                text={snackbarMessage.message}
+                open={isSnackbarOpen}
+                handleClose={closeSnackbar}
+                color={snackbarMessage.color}
+              />
+            </Grid>
           </Grid>
-        </Grid>
-      </Container>
+        </Container>
+      </Background>
       <Footer />
     </>
   );

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { injectIntl, FormattedMessage } from "react-intl";
 import { Form, Field } from "react-final-form";
+import { withRouter } from "react-router-dom";
 
 import { useTheme } from "../../ThemeContext";
 
@@ -21,7 +22,8 @@ const AddPetForm = ({
   // TODO: wprowadzić default propsy
   intl,
   shelters = [],
-  loading
+  loading,
+  history
 }) => {
   // const [currentImages, setCurrentImages] = useState([]);
   const [currentImages, setCurrentImages] = useState({
@@ -47,10 +49,11 @@ const AddPetForm = ({
     <Paper color="inherit">
       <Form
         onSubmit={(values, form) => {
-          onSubmit(values, shelter, petSex, currentImages);
+          onSubmit(values, shelter, petSex, currentImages, setCurrentImages);
           setTimeout(() => {
             form.reset();
             setShelter("");
+            setPetSex("");
           }, 500);
         }}
         render={({
@@ -220,11 +223,23 @@ const AddPetForm = ({
             </FormBox>
             <ButtonBox>
               <Button
+                status="cancel"
+                theme={theme}
+                onClick={() => history.goBack()}
+              >
+                <FormattedMessage id="APP_MODAL.CANCEL" />
+              </Button>
+              <Button
                 type="submit"
                 variant="contained"
                 color="inherit"
                 theme={theme}
-                disabled={submitting || pristine || invalid}
+                disabled={
+                  submitting ||
+                  pristine ||
+                  invalid ||
+                  currentImages.file === null
+                }
               >
                 <FormattedMessage
                   id={!loading ? "ADD_PAGE.ADD_PET_BTN" : "APP_STATE.LOADING"}
@@ -238,4 +253,4 @@ const AddPetForm = ({
   );
 };
 
-export default injectIntl(AddPetForm);
+export default withRouter(injectIntl(AddPetForm));

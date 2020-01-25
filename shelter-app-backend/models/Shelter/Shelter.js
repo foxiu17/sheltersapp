@@ -35,6 +35,16 @@ const shelterSchema = new Schema({
     type: String,
     required: false
   },
+  images: {
+    name: {
+      type: String,
+      required: false
+    },
+    publicId: {
+      type: String,
+      required: false
+    }
+  },
   pets: [
     {
       type: Schema.Types.ObjectId,

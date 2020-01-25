@@ -8,6 +8,10 @@ export const GET_PET = gql`
       age
       name
       description
+      images {
+        name
+        publicId
+      }
       shelter {
         _id
         name

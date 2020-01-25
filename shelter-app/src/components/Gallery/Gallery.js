@@ -1,9 +1,10 @@
 import React from "react";
 import Slider from "react-slick";
+import { Image } from "cloudinary-react";
 
-import { ImageBox, Image } from "./Gallery.style";
+import { ImageBox, CustomImage } from "./Gallery.style";
 
-const Gallery = () => {
+const Gallery = ({ images }) => {
   const settings = {
     arrows: false,
     dots: true,
@@ -38,7 +39,15 @@ const Gallery = () => {
       {photos.map((photo, index) => {
         return (
           <ImageBox key={index}>
-            <Image src={photo.photo} alt={photo.caption} />
+            {images !== undefined ? (
+              <Image
+                cloudName={process.env.REACT_APP_CLOUDINARY_NAME}
+                publicId={images.publicId}
+                crop="scale"
+              />
+            ) : (
+              <CustomImage src={photo.photo} alt={photo.caption} />
+            )}
           </ImageBox>
         );
       })}

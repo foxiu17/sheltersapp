@@ -21,6 +21,7 @@ import TableWrapper from "../../components/Table";
 import Modal from "../../components/Modal";
 import ErrorComponent from "../../components/ErrorComponent";
 import Snackbar from "../../components/Snackbar";
+import Background from "../../components/Background";
 
 import { Container, Grid } from "../../assets/common/Layout.style";
 import { Delete } from "../../assets/common/Icon.style";
@@ -117,51 +118,53 @@ const DashboardShelters = ({ intl }) => {
         setIsSidebarOpen={setIsSidebarOpen}
       />
       <Sidebar open={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen} />
-      <Container theme={theme}>
-        <Grid container justify="space-around">
-          {data && !error && data.shelters.length > 0 && (
-            <TableWrapper
-              headlines={DashboardSheltersHeadlines}
-              data={setData(data.shelters)}
+      <Background>
+        <Container theme={theme}>
+          <Grid container justify="space-around">
+            {data && !error && data.shelters.length > 0 && (
+              <TableWrapper
+                headlines={DashboardSheltersHeadlines}
+                data={setData(data.shelters)}
+              />
+            )}
+            {data && data.shelters.length === 0 && (
+              <ErrorComponent
+                title={intl.formatMessage(
+                  { id: "APP_STATE.SORRY" },
+                  { text: "" }
+                )}
+                text={intl.formatMessage({ id: "APP_STATE.NO_DATA" })}
+              />
+            )}
+            {error && (
+              <ErrorComponent
+                title={intl.formatMessage(
+                  { id: "APP_STATE.ERROR" },
+                  { text: "" }
+                )}
+                text={error.message}
+              />
+            )}
+            {loading && <Loader />}
+            {isModalOpen && (
+              <Modal
+                handleClose={toggleModal}
+                handleConfirmAction={removeShelter}
+                open={true}
+                name={shelterToRemove.name}
+                modalTitle={RemoveShelterModalTitle}
+                modalText={RemoveShelterModalText}
+              />
+            )}
+            <Snackbar
+              text={snackbarMessage.message}
+              open={isSnackbarOpen}
+              handleClose={closeSnackbar}
+              color={snackbarMessage.color}
             />
-          )}
-          {data && data.shelters.length === 0 && (
-            <ErrorComponent
-              title={intl.formatMessage(
-                { id: "APP_STATE.SORRY" },
-                { text: "" }
-              )}
-              text={intl.formatMessage({ id: "APP_STATE.NO_DATA" })}
-            />
-          )}
-          {error && (
-            <ErrorComponent
-              title={intl.formatMessage(
-                { id: "APP_STATE.ERROR" },
-                { text: "" }
-              )}
-              text={error.message}
-            />
-          )}
-          {loading && <Loader />}
-          {isModalOpen && (
-            <Modal
-              handleClose={toggleModal}
-              handleConfirmAction={removeShelter}
-              open={true}
-              name={shelterToRemove.name}
-              modalTitle={RemoveShelterModalTitle}
-              modalText={RemoveShelterModalText}
-            />
-          )}
-          <Snackbar
-            text={snackbarMessage.message}
-            open={isSnackbarOpen}
-            handleClose={closeSnackbar}
-            color={snackbarMessage.color}
-          />
-        </Grid>
-      </Container>
+          </Grid>
+        </Container>
+      </Background>
       <Footer />
     </>
   );

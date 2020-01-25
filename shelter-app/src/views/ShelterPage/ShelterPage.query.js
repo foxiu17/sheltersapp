@@ -10,6 +10,10 @@ export const GET_SHELTER = gql`
       description
       phone
       address
+      images {
+        name
+        publicId
+      }
       pets {
         _id
         name

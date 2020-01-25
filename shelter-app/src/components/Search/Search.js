@@ -89,7 +89,7 @@ const Search = ({
     <Paper color="inherit">
       <Form
         onSubmit={(values, form) => {
-          onSubmit(values);
+          onSubmit(values, city, voivodeship, genre, age);
           setTimeout(() => {
             form.reset();
             setCity("");

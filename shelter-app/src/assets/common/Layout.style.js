@@ -20,7 +20,7 @@ export const Container = styled(UI_CONTAINER)`
   padding: ${props =>
     props.mapbox && props.mapbox === "true"
       ? "10px 10px 0 80px !important"
-      : "25px 20px 100px 100px !important"};
+      : "25px 20px 90px 100px !important"};
   ${Max.xs`
     padding: ${props =>
       props.mapbox && props.mapbox === "true"

@@ -33,13 +33,11 @@ const SheltersPage = ({ intl }) => {
   });
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
-  const getFilteredShelters = values => {
+  const getFilteredShelters = (values, city, voivodeship) => {
     setVariables({
       name: values.name ? values.name : undefined,
-      city: values.city ? values.city.toString() : undefined,
-      voivodeship: values.voivodeship
-        ? values.voivodeship.toString()
-        : undefined
+      city: city ? city.toString() : undefined,
+      voivodeship: voivodeship ? voivodeship.toString() : undefined
     });
   };
 
@@ -54,6 +52,7 @@ const SheltersPage = ({ intl }) => {
     });
   };
 
+  console.log("SHELTERS: ", data);
   return (
     <>
       <Helmet title={intl.formatMessage({ id: "APP_TITLE.SHELTERS_PAGE" })} />

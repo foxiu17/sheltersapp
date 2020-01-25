@@ -11,6 +11,7 @@ import Sidebar from "../../components/Sidebar";
 import Footer from "../../components/Footer";
 import EditAccountPanel from "../../components/EditAccountPanel";
 import Snackbar from "../../components/Snackbar";
+import Background from "../../components/Background";
 
 import { useStateContextAuthorization } from "../../context/auth-context";
 
@@ -67,23 +68,25 @@ const EditAccountPage = ({ intl }) => {
         setIsSidebarOpen={setIsSidebarOpen}
       />
       <Sidebar open={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen} />
-      <Container theme={theme}>
-        <Grid container justify="center">
-          <Grid item xs={12} md={6}>
-            <EditAccountPanel
-              onSubmit={handleEditAccount}
-              loading={loading}
-              email={auth.email}
-            />
-            <Snackbar
-              text={snackbarMessage.message}
-              open={isSnackbarOpen}
-              handleClose={closeSnackbar}
-              color={snackbarMessage.color}
-            />
+      <Background>
+        <Container theme={theme}>
+          <Grid container justify="center">
+            <Grid item xs={12} md={6}>
+              <EditAccountPanel
+                onSubmit={handleEditAccount}
+                loading={loading}
+                email={auth.email}
+              />
+              <Snackbar
+                text={snackbarMessage.message}
+                open={isSnackbarOpen}
+                handleClose={closeSnackbar}
+                color={snackbarMessage.color}
+              />
+            </Grid>
           </Grid>
-        </Grid>
-      </Container>
+        </Container>
+      </Background>
       <Footer />
     </>
   );

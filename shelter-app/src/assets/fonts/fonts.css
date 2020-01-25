@@ -3,3 +3,7 @@
 body, * {
   font-family: "Ibarra Real Nova", serif !important;
 }
+
+img {
+  width: 100%;
+}

@@ -63,7 +63,7 @@ exports[`[LOGIN PANEL COMPONENT] - [RENDER] - should render initial component 1`
           "APP_LABEL.NAME": "Imię",
           "APP_LABEL.NEW_PASSWORD": "Nowe hasło",
           "APP_LABEL.NO_INFORMATION": "Brak informacji",
-          "APP_LABEL.PETS_COUNT": "Ilość podopiecznych",
+          "APP_LABEL.PETS_COUNT": "Liczba zwierzaków",
           "APP_LABEL.PHONE": "Numer telefonu",
           "APP_LABEL.SEX": "Płeć",
           "APP_LABEL.SHELTER": "Schronisko",

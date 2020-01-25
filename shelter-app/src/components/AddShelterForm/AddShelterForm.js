@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { injectIntl, FormattedMessage } from "react-intl";
 import { Form, Field } from "react-final-form";
+import { withRouter } from "react-router-dom";
 
 import { useTheme } from "../../ThemeContext";
 
@@ -21,7 +22,7 @@ import {
 
 import { TextField } from "../../assets/common/Input.style";
 
-const AddShelterForm = ({ onSubmit = () => {}, intl, loading }) => {
+const AddShelterForm = ({ onSubmit = () => {}, intl, loading, history }) => {
   const theme = useTheme();
   const [currentImages, setCurrentImages] = useState([]);
   const [voivodeship, setVoivodeship] = useState("");
@@ -36,7 +37,7 @@ const AddShelterForm = ({ onSubmit = () => {}, intl, loading }) => {
     <Paper color="inherit">
       <Form
         onSubmit={(values, form) => {
-          onSubmit(values, currentImages);
+          onSubmit(values, voivodeship, currentImages);
           setTimeout(() => {
             form.reset();
             setVoivodeship("");
@@ -236,6 +237,13 @@ const AddShelterForm = ({ onSubmit = () => {}, intl, loading }) => {
             </FormBox>
             <ButtonBox>
               <Button
+                status="cancel"
+                theme={theme}
+                onClick={() => history.goBack()}
+              >
+                <FormattedMessage id="APP_MODAL.CANCEL" />
+              </Button>
+              <Button
                 type="submit"
                 variant="contained"
                 color="inherit"
@@ -256,4 +264,4 @@ const AddShelterForm = ({ onSubmit = () => {}, intl, loading }) => {
   );
 };
 
-export default injectIntl(AddShelterForm);
+export default withRouter(injectIntl(AddShelterForm));

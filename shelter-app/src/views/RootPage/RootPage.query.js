@@ -8,6 +8,10 @@ export const GET_SHELTERS = gql`
       lat
       lng
       city
+      images {
+        name
+        publicId
+      }
       description
       pets {
         type

@@ -17,11 +17,7 @@ function MyDropzone({ intl, currentImages, setCurrentImages }) {
 
   const renderUploadedList = () => {
     return currentImages.map((image, index) => {
-      return (
-        <UploadedItem key={index}>
-          <Image src={image} alt={`Pet - ${index}`} />
-        </UploadedItem>
-      );
+      return <UploadedItem key={index}>{image.name}</UploadedItem>;
     });
   };
 
@@ -55,9 +51,11 @@ function MyDropzone({ intl, currentImages, setCurrentImages }) {
       <Paragraph>
         <FormattedMessage id="APP_DROPZONE.TEXT" />
       </Paragraph>
-      <UploadedList>
-        {currentImages.length > 0 && renderUploadedList()}
-      </UploadedList>
+      {currentImages.length > 0 && (
+        <UploadedList>
+          <UploadedItem>{currentImages.name}</UploadedItem>
+        </UploadedList>
+      )}
     </Container>
   );
 }

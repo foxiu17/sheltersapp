@@ -6,9 +6,15 @@ import {
 } from "../../assets/common/Image.style";
 
 export const ImageBox = styled.div`
-  ${commonImageBox}
+  ${commonImageBox};
+
+  img {
+    width: 100%;
+    max-width: 100%;
+    max-height: calc(100vh - 220px);
+  }
 `;
 
-export const Image = styled.img`
+export const CustomImage = styled.img`
   ${commonImage}
 `;

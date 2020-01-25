@@ -32,7 +32,7 @@ const PetPage = ({ intl, match }) => {
       <Container>
         <Grid container justify="center">
           <Grid item md={6} xs={12}>
-            <Gallery />
+            {data && <Gallery images={data.pets[0].images} />}
           </Grid>
           <Grid item md={6} xs={12}>
             {data && <ProfilePanel data={data.pets[0]} />}

@@ -23,7 +23,10 @@ export const GET_PETS = gql`
       age
       description
       sex
-      images
+      images {
+        name
+        publicId
+      }
       shelter {
         _id
         name

@@ -21,7 +21,9 @@ import {
 } from "../../assets/common/Notification.style";
 
 export const Paper = styled(UI_PAPER)`
+  position: relative;
   background-color: rgba(255, 255, 255, 0.8) !important;
+  z-index: 10;
 `;
 
 export const InputBox = styled.div`
@@ -49,9 +51,20 @@ export const ButtonBox = styled.div`
 `;
 
 export const Button = styled(commonButton)`
+  margin: 0 10px !important;
+  .MuiButton-root {
+    margin: 0 10px !important;
+  }
   background-color: ${props =>
-    props.theme.palette.common.fountain_blue} !important;
+    props.status === "cancel"
+      ? props.theme.palette.notification.roman
+      : props.theme.palette.common.fountain_blue} !important;
   color: ${props => props.theme.palette.common.white} !important;
+
+  ${Max.xs`
+    width: 100%;
+    margin: 5px 0 !important;
+`}
 `;
 
 export const ExtraText = styled.span`

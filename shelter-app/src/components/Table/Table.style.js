@@ -11,7 +11,10 @@ import UI_CODE from "@material-ui/icons/Code";
 import UI_KEYBOARD_DOWN from "@material-ui/icons/KeyboardArrowDown";
 import UI_KEYBOARD_UP from "@material-ui/icons/KeyboardArrowUp";
 
-export const Paper = styled(UI_PAPER)``;
+export const Paper = styled(UI_PAPER)`
+  position: relative;
+  z-index: 10;
+`;
 
 export const TableBox = styled(TableContainer)``;
 

@@ -51,14 +51,15 @@ const PetsPage = ({ intl, location, match }) => {
     ]
   });
 
-  const getFilteredPets = values => {
+  const getFilteredPets = (values, city, voivodeship, genre, age) => {
+    console.log("values", values);
     setVariables({
-      type: values.genre ? values.genre.toString() : undefined,
-      voivodeship: values.voivodeship
-        ? values.voivodeship.toString()
+      type: genre ? genre.toString() : undefined,
+      voivodeship: voivodeship
+        ? voivodeship.toString()
         : undefined,
-      city: values.city ? values.city.toString() : undefined,
-      age: values.age ? parseInt(values.age) : undefined,
+      city: city ? city.toString() : undefined,
+      age: age ? parseInt(age) : undefined,
       name: values.name ? values.name.toString() : undefined
     });
   };
@@ -97,6 +98,7 @@ const PetsPage = ({ intl, location, match }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pathname]);
 
+  console.log("PETS: ", data);
   return (
     <>
       <Helmet title={intl.formatMessage({ id: "APP_TITLE.PETS_PAGE" })} />

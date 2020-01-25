@@ -22,6 +22,11 @@ export const GET_FAVORITE_PETS = gql`
       type
       age
       description
+      sex
+      images {
+        name
+        publicId
+      }
       shelter {
         _id
         name

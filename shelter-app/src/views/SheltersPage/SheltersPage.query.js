@@ -5,10 +5,18 @@ export const GET_SHELTERS = gql`
     shelters(name: $name, voivodeship: $voivodeship, city: $city) {
       _id
       name
+      voivodeship
       city
       description
       phone
       address
+      images {
+        name
+        publicId
+      }
+      pets {
+        name
+      }
     }
   }
 `;

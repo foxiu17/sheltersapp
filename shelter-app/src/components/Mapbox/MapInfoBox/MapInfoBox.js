@@ -1,6 +1,7 @@
 import React from "react";
 import { withRouter } from "react-router";
 import { FormattedMessage, injectIntl } from "react-intl";
+import { Image } from "cloudinary-react";
 
 import { useTheme } from "../../../ThemeContext";
 
@@ -15,18 +16,18 @@ import {
   InfoboxInnerGrid,
   InfoboxItem,
   ImageBox,
-  Image,
   ButtonBox,
   IconButton,
   InfoText,
-  Link
+  Link,
+  Strong
 } from "../Mapbox.style";
 
 import Clear from "@material-ui/icons/Clear";
 
 const MapInfoBox = ({ data, handleCloseInfoBox }) => {
   const theme = useTheme();
-  const { name, lat, lng, city, _id } = data;
+  const { name, lat, lng, city, _id, images, pets } = data;
   const infoBoxDefaultPosition = new window.google.maps.LatLng(lat, lng);
   return (
     <InfoBox
@@ -49,22 +50,31 @@ const MapInfoBox = ({ data, handleCloseInfoBox }) => {
           </InfoboxItem>
           <InfoboxItem>
             <ImageBox>
-              <Image src="https://placeimg.com/640/480/arch" alt="shelter" />
+              <Image
+                cloudName={process.env.REACT_APP_CLOUDINARY_NAME}
+                publicId={images.publicId}
+                crop="scale"
+              />
             </ImageBox>
           </InfoboxItem>
           <InfoboxItem>
             <InfoText theme={theme}>
-              <b>City: </b>
+              <Strong>
+                <FormattedMessage id="APP_LABEL.CITY" />:{" "}
+              </Strong>
               {city}
+            </InfoText>
+            <InfoText theme={theme}>
+              <Strong>
+                <FormattedMessage id="APP_LABEL.PETS_COUNT" />:{" "}
+              </Strong>
+              {pets.length}
             </InfoText>
             <InfoboxInnerGrid>
               <Link href={`${petsPageUrl}/${_id}`} theme={theme.palette}>
                 <FormattedMessage id="ROOT_PAGE.PETS_BTN" />
               </Link>
-              <Link
-                href={`${shelterDetailsUrl}/${_id}`}
-                theme={theme.palette}
-              >
+              <Link href={`${shelterDetailsUrl}/${_id}`} theme={theme.palette}>
                 <FormattedMessage id="ROOT_PAGE.PROFILE_BTN" />
               </Link>
             </InfoboxInnerGrid>

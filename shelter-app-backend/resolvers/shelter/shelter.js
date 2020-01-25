@@ -51,7 +51,8 @@ module.exports = {
       city: args.city,
       description: args.description,
       phone: args.phone,
-      address: args.address
+      address: args.address,
+      images: args.images
     });
 
     return shelter.save();

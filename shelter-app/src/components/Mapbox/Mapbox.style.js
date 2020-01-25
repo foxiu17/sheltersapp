@@ -42,7 +42,7 @@ export const ImageBox = styled.div`
   text-align: center;
 `;
 
-export const Image = styled.img`
+export const CustomImage = styled.img`
   ${commonImage}
   max-width: 100% !important;
 `;
@@ -57,7 +57,7 @@ export const IconButton = styled(commonIconButton)`
 `;
 
 export const InfoText = styled.p`
-  padding: 5px 0px;
+  padding: 0 0 5px;
   color: ${props => props.theme.palette.common.black};
   font-size: ${props => (props.title === "true" ? "14px" : "12px")};
   font-weight: ${props => (props.title === "true" ? "600" : "400")};
@@ -76,4 +76,8 @@ export const Link = styled.a`
     background-color: ${props => props.theme.common.robins_egg_blue};
     color: ${props => props.theme.common.white};
   }
+`;
+
+export const Strong = styled.strong`
+  font-weight: 600;
 `;
