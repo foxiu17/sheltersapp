@@ -65,3 +65,7 @@ export const ProfileItem = styled.div`
 `;
 
 export const ProfileImage = styled.img``;
+
+export const Box = styled.div`
+  position: relative;
+`;

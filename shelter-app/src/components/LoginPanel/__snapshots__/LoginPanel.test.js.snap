@@ -6,7 +6,7 @@ exports[`[LOGIN PANEL COMPONENT] - [RENDER] - should render initial component 1`
     intl={
       Object {
         "defaultFormats": Object {},
-        "defaultLocale": "pl-PL",
+        "defaultLocale": "en-GB",
         "formatDate": [Function],
         "formatHTMLMessage": [Function],
         "formatMessage": [Function],
@@ -22,136 +22,139 @@ exports[`[LOGIN PANEL COMPONENT] - [RENDER] - should render initial component 1`
           "getPluralFormat": [Function],
           "getRelativeFormat": [Function],
         },
-        "locale": "pl-PL",
+        "locale": "en-GB",
         "messages": Object {
-          "ADD_PAGE.ADD_PET_BTN": "Dodaj zwierzaka",
-          "ADD_PAGE.ADD_SHELTER_BTN": "Dodaj schronisko",
-          "ADD_PET_FORM.SELECT_LABEL": "Wybierz schronisko",
-          "APP_404.TEXT": "PRZEPRASZAM, ALE STRONA, KTÓREJ SZUKASZ NIE ISTNIEJE",
-          "APP_404.TITLE": "STRONA NIE ISTNIEJE",
-          "APP_BUTTONS.ADD_PET": "Dodaj zwierzę",
-          "APP_BUTTONS.ADD_SHELTER": "Dodaj schronisko",
-          "APP_BUTTONS.CLEAR_FILTER": "Wyczyść filtr",
-          "APP_BUTTONS.EDIT_PASSWORD": "Zmień hasło",
-          "APP_BUTTONS.GO": "Idź",
-          "APP_BUTTONS.GO_BACK": "Wróć",
-          "APP_BUTTONS.GO_PETS": "Podopieczni schroniska",
-          "APP_BUTTONS.GO_SHELTER": "Profil schroniska",
-          "APP_BUTTONS.MANAGE_PETS": "Zarządzaj zwierzętami",
-          "APP_BUTTONS.MANAGE_SHELTERS": "Zarządzaj schroniskami",
-          "APP_BUTTONS.SEARCH": "Szukaj",
-          "APP_DROPZONE.TEXT": "Przeciągnij wybrane zdjęcie/a lub kliknij w obszar, aby wybrać.",
-          "APP_LABEL.ADDRESS": "Adres",
-          "APP_LABEL.AGE": "Wiek",
-          "APP_LABEL.CAT": "Kot",
-          "APP_LABEL.CITY": "Miejscowość",
-          "APP_LABEL.CONFIRM_PASSWORD": "Potwierdź hasłem",
-          "APP_LABEL.DESCRIPTION": "Opis",
-          "APP_LABEL.DOG": "Pies",
+          "ADD_PAGE.ADD_PET_BTN": "Add pet",
+          "ADD_PAGE.ADD_SHELTER_BTN": "Add shelter",
+          "ADD_PET_FORM.SELECT_LABEL": "Select a shelter",
+          "APP_404.TEXT": "WE ARE SORRY, BUT THE PAGE YOU REQUESTED WAS NOT FOUND",
+          "APP_404.TITLE": "PAGE NOT FOUND",
+          "APP_BUTTONS.ADD_PET": "Add pet",
+          "APP_BUTTONS.ADD_SHELTER": "Add shelter",
+          "APP_BUTTONS.CLEAR_FILTER": "Clear filter",
+          "APP_BUTTONS.EDIT_PASSWORD": "Change password",
+          "APP_BUTTONS.GO": "Go",
+          "APP_BUTTONS.GO_BACK": "Go back",
+          "APP_BUTTONS.GO_PETS": "Shelter pets",
+          "APP_BUTTONS.GO_SHELTER": "Shelter profile",
+          "APP_BUTTONS.MANAGE_PETS": "Manage pets",
+          "APP_BUTTONS.MANAGE_SHELTERS": "Manage shelters",
+          "APP_BUTTONS.SEARCH": "Search",
+          "APP_DROPZONE.TEXT": "Drag 'n' drop some files here, or click to select files",
+          "APP_LABEL.ADDRESS": "Address",
+          "APP_LABEL.AGE": "Age",
+          "APP_LABEL.CAT": "Cat",
+          "APP_LABEL.CITY": "City",
+          "APP_LABEL.CONFIRM_PASSWORD": "Confirm password",
+          "APP_LABEL.DESCRIPTION": "Description",
+          "APP_LABEL.DOG": "Dog",
           "APP_LABEL.EMAIL": "Email",
-          "APP_LABEL.FEMALE": "Żeńska",
-          "APP_LABEL.GENRE": "Gatunek",
+          "APP_LABEL.ENGLISH": "English",
+          "APP_LABEL.FEMALE": "Female",
+          "APP_LABEL.GENRE": "Genre",
+          "APP_LABEL.LANGUAGE": "Language",
           "APP_LABEL.LATITUDE": "Latitude",
-          "APP_LABEL.LESS_1": "Mniej niż 1 rok",
-          "APP_LABEL.LESS_10": "Mniej niż 10 lat",
-          "APP_LABEL.LESS_3": "Mniej niż 3 lata",
-          "APP_LABEL.LESS_5": "Mniej niż 5 lat",
-          "APP_LABEL.LESS_8": "Mniej niż 8 lat",
+          "APP_LABEL.LESS_1": "Less than 1 year",
+          "APP_LABEL.LESS_10": "Less than 10 year",
+          "APP_LABEL.LESS_3": "Less than 3 year",
+          "APP_LABEL.LESS_5": "Less than 5 year",
+          "APP_LABEL.LESS_8": "Less than 8 year",
           "APP_LABEL.LONGITUDE": "Longitude",
-          "APP_LABEL.MALE": "Męska",
-          "APP_LABEL.MORE_10": "Więcej niż 10 lat",
-          "APP_LABEL.NAME": "Imię",
-          "APP_LABEL.NEW_PASSWORD": "Nowe hasło",
-          "APP_LABEL.NO_INFORMATION": "Brak informacji",
-          "APP_LABEL.PETS_COUNT": "Liczba zwierzaków",
-          "APP_LABEL.PHONE": "Numer telefonu",
-          "APP_LABEL.SEX": "Płeć",
-          "APP_LABEL.SHELTER": "Schronisko",
-          "APP_LABEL.SHELTERS": "Schroniska",
-          "APP_LABEL.SHELTER_ADDRESS": "Adres schroniska",
-          "APP_LABEL.SHELTER_NAME": "Nazwa",
-          "APP_LABEL.SHELTER_PHONE": "Numer telefonu schroniska",
-          "APP_LABEL.VOIVODESHIP": "Województwo",
-          "APP_MODAL.CANCEL": "Anuluj",
-          "APP_MODAL.CONFIRM": "Potwierdź",
-          "APP_MODAL.PET_TEXT": "Ta operacja spowoduje usunięcie zwierzęta {text} ze schroniska oraz z bazy danych. Operacji nie można cofnąć.",
-          "APP_MODAL.PET_TITLE": "Usunąć {text} ?",
-          "APP_MODAL.SHELTER_TEXT": "Ta operacja spowoduje usunięcie schroniska {text} oraz znajdujących się w nim zwierząt z bazy danych. Operacji nie można cofnąć.",
-          "APP_MODAL.SHELTER_TITLE": "Usunąć {text} ?",
-          "APP_STATE.ERROR": "Błąd! {text}",
-          "APP_STATE.FETCHING_DATA": "Pobieranie danych...",
-          "APP_STATE.LOADING": "Ładowanie ...",
-          "APP_STATE.NO_DATA": "Nie znaleziono żadnych danych :(",
-          "APP_STATE.SORRY": "Upss... przepraszam!",
-          "APP_STATE.SUCCESS": "Sukces!",
-          "APP_TABLE.HEADLINE_ACTIONS": "Operacje",
-          "APP_TABLE.HEADLINE_AGE": "Wiek",
-          "APP_TABLE.HEADLINE_CITY": "Miejscowość",
-          "APP_TABLE.HEADLINE_GENRE": "Gatunek",
-          "APP_TABLE.HEADLINE_NAME": "Imię",
-          "APP_TABLE.HEADLINE_ORDINAL_NUMBER": "L.p.",
-          "APP_TABLE.HEADLINE_SHELTER_NAME": "Nazwa schroniska",
-          "APP_TABLE.HEADLINE_VOIVODESHIP": "Województwo",
-          "APP_TITLE.ADD_PET": "DODAWANIE ZWIERZĘCIA",
-          "APP_TITLE.ADD_SHELTER": "DODAWANIE SCHRONISKA",
-          "APP_TITLE.ADMIN_PANEL": "PANEL ADMINISTRATORA",
-          "APP_TITLE.CONTACT_PAGE": "KONTAKT",
-          "APP_TITLE.DASHBOARD_PETS": "ZARZĄDZAJ ZWIERZĘTAMI",
-          "APP_TITLE.DASHBOARD_SHELTERS": "ZARZĄDZAJ SCHRONISKAMI",
-          "APP_TITLE.EDIT_ACCOUNT": "EDYTUJ KONTO",
-          "APP_TITLE.FAVORITES_PETS_PAGE": "OBSERWOWANE ZWIERZĘTA",
-          "APP_TITLE.HOMEPAGE": "STRONA GŁÓWNA",
-          "APP_TITLE.LOG_IN_PAGE": "LOGOWANIE",
-          "APP_TITLE.PETS_PAGE": "ZWIERZĘTA",
-          "APP_TITLE.PET_PAGE": "PROFIL PUPILA",
-          "APP_TITLE.SHELTERS_PAGE": "SCHRONISKA",
-          "APP_TITLE.SHELTER_PAGE": "PROFIL SCHRONISKA",
-          "APP_TITLE.SIGN_UP_PAGE": "REJESTRACJA",
-          "FAVORITES_PETS_PAGE.TITLE": "Obserwowane zwierzęta",
-          "HEADER.EDIT_ACCOUNT": "Edycja konta",
-          "HEADER.LOG_IN": "Zaloguj się",
-          "HEADER.LOG_OUT": "Wyloguj się",
-          "HEADER.REGISTRATION": "Zarejestruj się",
-          "ITEM_CARD.READ_MORE_BTN": "Sprawdź profil",
-          "LOG_IN_PAGE.CONFIRM_PASSWORD": "Powtórz hasło",
+          "APP_LABEL.MALE": "Male",
+          "APP_LABEL.MORE_10": "More than 10 year",
+          "APP_LABEL.NAME": "Name",
+          "APP_LABEL.NEW_PASSWORD": "New password",
+          "APP_LABEL.NO_INFORMATION": "No information",
+          "APP_LABEL.PETS_COUNT": "Number of pupils",
+          "APP_LABEL.PHONE": "Phone number",
+          "APP_LABEL.POLISH": "Polish",
+          "APP_LABEL.SEX": "Sex",
+          "APP_LABEL.SHELTER": "Shelter",
+          "APP_LABEL.SHELTERS": "Shelters",
+          "APP_LABEL.SHELTER_ADDRESS": "Shelter address",
+          "APP_LABEL.SHELTER_NAME": "Name",
+          "APP_LABEL.SHELTER_PHONE": "Shelter phone number",
+          "APP_LABEL.VOIVODESHIP": "Voivodeship",
+          "APP_MODAL.CANCEL": "Cancel",
+          "APP_MODAL.CONFIRM": "Confirm",
+          "APP_MODAL.PET_TEXT": "The operation will remove the animal {text} from its shelter and from the database. Operation cannot be undone.",
+          "APP_MODAL.PET_TITLE": "Remove {text} ?",
+          "APP_MODAL.SHELTER_TEXT": "The operation will remove the shelter {text} and its animals from the database. Operation cannot be undone.",
+          "APP_MODAL.SHELTER_TITLE": "Remove {text} ?",
+          "APP_STATE.ERROR": "Error! {text}",
+          "APP_STATE.FETCHING_DATA": "Fetching data...",
+          "APP_STATE.LOADING": "Loading ...",
+          "APP_STATE.NO_DATA": "No data found :(",
+          "APP_STATE.SORRY": "Upss... sorry!",
+          "APP_STATE.SUCCESS": "Success!",
+          "APP_TABLE.HEADLINE_ACTIONS": "Actions",
+          "APP_TABLE.HEADLINE_AGE": "Age",
+          "APP_TABLE.HEADLINE_CITY": "City",
+          "APP_TABLE.HEADLINE_GENRE": "Genre",
+          "APP_TABLE.HEADLINE_NAME": "Name",
+          "APP_TABLE.HEADLINE_ORDINAL_NUMBER": "Ordinal number",
+          "APP_TABLE.HEADLINE_SHELTER_NAME": "Shelter name",
+          "APP_TABLE.HEADLINE_VOIVODESHIP": "Voivodeship",
+          "APP_TITLE.ADD_PET": "ADD PET PAGE",
+          "APP_TITLE.ADD_SHELTER": "ADD SHELTER PAGE",
+          "APP_TITLE.ADMIN_PANEL": "ADMIN PANEL PAGE",
+          "APP_TITLE.CONTACT_PAGE": "CONTACT PAGE",
+          "APP_TITLE.DASHBOARD_PETS": "DASHBOARD PETS PAGE",
+          "APP_TITLE.DASHBOARD_SHELTERS": "DASHBOARD SHELTERS PAGE",
+          "APP_TITLE.EDIT_ACCOUNT": "EDIT ACCOUNT PAGE",
+          "APP_TITLE.FAVORITES_PETS_PAGE": "FAVORITES PETS PAGE",
+          "APP_TITLE.HOMEPAGE": "HOMEPAGE",
+          "APP_TITLE.LOG_IN_PAGE": "LOG IN PAGE",
+          "APP_TITLE.PETS_PAGE": "PETS PAGE",
+          "APP_TITLE.PET_PAGE": "PET PAGE",
+          "APP_TITLE.SHELTERS_PAGE": "SHELTERS PAGE",
+          "APP_TITLE.SHELTER_PAGE": "SHELTER PAGE",
+          "APP_TITLE.SIGN_UP_PAGE": "SIGN UP PAGE",
+          "FAVORITES_PETS_PAGE.TITLE": "Favorites pets",
+          "HEADER.EDIT_ACCOUNT": "Edit account",
+          "HEADER.LOG_IN": "Log in",
+          "HEADER.LOG_OUT": "Log out",
+          "HEADER.REGISTRATION": "Sign up",
+          "ITEM_CARD.READ_MORE_BTN": "Check profile",
+          "LOG_IN_PAGE.CONFIRM_PASSWORD": "Confirm password",
           "LOG_IN_PAGE.EMAIL": "Email",
-          "LOG_IN_PAGE.NAME": "Imię",
-          "LOG_IN_PAGE.PASSWORD": "Hasło",
-          "LOG_IN_PAGE.REDIRECT": "Nie masz konta?",
-          "LOG_IN_PAGE.SUBMIT_BTN": "Zaloguj się",
-          "LOG_IN_PAGE.SURNAME": "Nazwisko",
-          "LOG_IN_PAGE.TITLE": "Logowanie",
-          "PETS_PAGE.TITLE": "Podopieczni schroniska",
-          "ROOT_PAGE.PETS_BTN": "Szukaj zwierzaka",
-          "ROOT_PAGE.PROFILE_BTN": "Przejrzyj profil",
-          "SHELTERS_PAGE.TITLE": "Schroniska",
-          "SIDEBAR.ADD_PET_TITLE": "Dodaj zwierzę",
-          "SIDEBAR.ADD_SHELTER_TITLE": "Dodaj schronisko",
-          "SIDEBAR.ADD_TITLE": "Dodaj",
-          "SIDEBAR.FAVORITE_PETS": "Ulubione",
-          "SIDEBAR.HOMEPAGE_TITLE": "Strona główna",
-          "SIDEBAR.MANAGE": "Zarządzaj",
-          "SIDEBAR.PETS_TITLE": "Zwierzęta",
-          "SIDEBAR.SHELTERS_TITLE": "Schroniska",
-          "SIGN_UP_PAGE.SUBMIT_BTN": "Zarejestruj się",
-          "SIGN_UP_PAGE.TITLE": "Rejestracja",
-          "SNACKBAR.ADD_PET_FAILED": "Operacja dodania zwierzęcia zakończona niepowodzeniem",
-          "SNACKBAR.ADD_PET_SUCCESS": "Operacja dodania zwierzęcia zakończona sukcesem",
-          "SNACKBAR.ADD_SHELTER_FAILED": "Operacja dodania schroniska zakończona niepowodzeniem",
-          "SNACKBAR.ADD_SHELTER_SUCCESS": "Operacja dodania schroniska zakończona sukcesem",
-          "SNACKBAR.CREATE_ACCOUNT_SUCCESS": "Konto zostało stworzone",
-          "SNACKBAR.EDIT_ACCOUNT_FAILED": "Błąd! Hasło nie zostało zmienione",
-          "SNACKBAR.EDIT_ACCOUNT_SUCCESS": "Hasło zostało zmienione",
-          "SNACKBAR.REMOVE_PET_FAILED": "Operacja usunięcia zwierzęcia zakończona niepowodzeniem",
-          "SNACKBAR.REMOVE_PET_SUCCESS": "Operacja usunięcia zwierzęcia zakończona sukcesem",
-          "SNACKBAR.REMOVE_SHELTER_FAILED": "Operacja usunięcia schroniska zakończona niepowodzeniem",
-          "SNACKBAR.REMOVE_SHELTER_SUCCESS": "Operacja usunięcia schroniska zakończona sukcesem",
-          "VALIDATION_MESSAGE.CONFIRM_PASSWORD": "Hasło potwierdzające nie pasuje do wpisanego hasła",
-          "VALIDATION_MESSAGE.MUST_BE_EMAIL": "Zły format adresu email!",
-          "VALIDATION_MESSAGE.MUST_BE_PASSWORD": "Zły format hasła!",
-          "VALIDATION_MESSAGE.MUST_BE_PHONE": "Zły format numeru telefonu!",
-          "VALIDATION_MESSAGE.NUMBER": "To nie jest cyfra/liczba!",
-          "VALIDATION_MESSAGE.REQUIRED": "Pole wymagane",
+          "LOG_IN_PAGE.NAME": "Name",
+          "LOG_IN_PAGE.PASSWORD": "Password",
+          "LOG_IN_PAGE.REDIRECT": "Don't have an account?",
+          "LOG_IN_PAGE.SUBMIT_BTN": "Log in",
+          "LOG_IN_PAGE.SURNAME": "Surname",
+          "LOG_IN_PAGE.TITLE": "Log in",
+          "PETS_PAGE.TITLE": "Pets page",
+          "ROOT_PAGE.PETS_BTN": "Check pets",
+          "ROOT_PAGE.PROFILE_BTN": "Check profile",
+          "SHELTERS_PAGE.TITLE": "Shelters page",
+          "SIDEBAR.ADD_PET_TITLE": "Add pet",
+          "SIDEBAR.ADD_SHELTER_TITLE": "Add shelter",
+          "SIDEBAR.ADD_TITLE": "Add",
+          "SIDEBAR.FAVORITE_PETS": "Favorite pets",
+          "SIDEBAR.HOMEPAGE_TITLE": "Homepage",
+          "SIDEBAR.MANAGE": "Manage",
+          "SIDEBAR.PETS_TITLE": "Pets",
+          "SIDEBAR.SHELTERS_TITLE": "Shelters",
+          "SIGN_UP_PAGE.SUBMIT_BTN": "Sign up",
+          "SIGN_UP_PAGE.TITLE": "Sign up",
+          "SNACKBAR.ADD_PET_FAILED": "Failed! Pet didn't add",
+          "SNACKBAR.ADD_PET_SUCCESS": "Pet added successfully",
+          "SNACKBAR.ADD_SHELTER_FAILED": "Failed! Shelter didn't add",
+          "SNACKBAR.ADD_SHELTER_SUCCESS": "Shelter added successfully",
+          "SNACKBAR.CREATE_ACCOUNT_SUCCESS": "Account created successfully",
+          "SNACKBAR.EDIT_ACCOUNT_FAILED": "FAILED! Password didn't change",
+          "SNACKBAR.EDIT_ACCOUNT_SUCCESS": "Password edited successfully",
+          "SNACKBAR.REMOVE_PET_FAILED": "Failed! Pet didn't remove",
+          "SNACKBAR.REMOVE_PET_SUCCESS": "Success! Pet removed",
+          "SNACKBAR.REMOVE_SHELTER_FAILED": "Failed! Shelter didn't remove",
+          "SNACKBAR.REMOVE_SHELTER_SUCCESS": "Success! Shelter removed",
+          "VALIDATION_MESSAGE.CONFIRM_PASSWORD": "Confirm password is wrong!",
+          "VALIDATION_MESSAGE.MUST_BE_EMAIL": "Wrong email format!",
+          "VALIDATION_MESSAGE.MUST_BE_PASSWORD": "Wrong password format!",
+          "VALIDATION_MESSAGE.MUST_BE_PHONE": "Wrong phone number format!",
+          "VALIDATION_MESSAGE.NUMBER": "It's not a number!",
+          "VALIDATION_MESSAGE.REQUIRED": "Required field",
         },
         "now": [Function],
         "onError": [Function],
@@ -5679,7 +5682,7 @@ exports[`[LOGIN PANEL COMPONENT] - [RENDER] - should render initial component 1`
                               >
                                 <Styled(WithStyles(ForwardRef(TextField)))
                                   error={false}
-                                  label="Hasło"
+                                  label="Password"
                                   margin="normal"
                                   name="password"
                                   onBlur={[Function]}
@@ -6715,7 +6718,7 @@ exports[`[LOGIN PANEL COMPONENT] - [RENDER] - should render initial component 1`
                                       }
                                     }
                                     forwardedRef={null}
-                                    label="Hasło"
+                                    label="Password"
                                     margin="normal"
                                     name="password"
                                     onBlur={[Function]}
@@ -7031,7 +7034,7 @@ exports[`[LOGIN PANEL COMPONENT] - [RENDER] - should render initial component 1`
                                     <WithStyles(ForwardRef(TextField))
                                       className="sc-bdVaJa glKUqN"
                                       error={false}
-                                      label="Hasło"
+                                      label="Password"
                                       margin="normal"
                                       name="password"
                                       onBlur={[Function]}
@@ -7352,7 +7355,7 @@ exports[`[LOGIN PANEL COMPONENT] - [RENDER] - should render initial component 1`
                                           }
                                         }
                                         error={false}
-                                        label="Hasło"
+                                        label="Password"
                                         margin="normal"
                                         name="password"
                                         onBlur={[Function]}
@@ -8657,7 +8660,7 @@ exports[`[LOGIN PANEL COMPONENT] - [RENDER] - should render initial component 1`
                                                         className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
                                                         data-shrink={false}
                                                       >
-                                                        Hasło
+                                                        Password
                                                       </label>
                                                     </ForwardRef(FormLabel)>
                                                   </WithStyles(ForwardRef(FormLabel))>
@@ -8957,7 +8960,7 @@ exports[`[LOGIN PANEL COMPONENT] - [RENDER] - should render initial component 1`
                                 values={Object {}}
                               >
                                 <span>
-                                  Nie masz konta?
+                                  Don't have an account?
                                 </span>
                               </FormattedMessage>
                               <Styled(Styled(Link))
@@ -10554,7 +10557,7 @@ exports[`[LOGIN PANEL COMPONENT] - [RENDER] - should render initial component 1`
                                           values={Object {}}
                                         >
                                           <span>
-                                            Zarejestruj się
+                                            Sign up
                                           </span>
                                         </FormattedMessage>
                                         !
@@ -13464,7 +13467,7 @@ exports[`[LOGIN PANEL COMPONENT] - [RENDER] - should render initial component 1`
                                           values={Object {}}
                                         >
                                           <span>
-                                            Zaloguj się
+                                            Log in
                                           </span>
                                         </FormattedMessage>
                                       </span>

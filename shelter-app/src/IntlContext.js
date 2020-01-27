@@ -11,6 +11,7 @@ const Context = React.createContext();
 
 const IntlProviderWrapper = ({ children }) => {
   const [locale, switchLanguage] = useState(config.lang);
+  console.log('locale: ', locale);
   return (
     <Context.Provider value={{ switchLanguage }}>
       <IntlProvider

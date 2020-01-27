@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-expressions */
-import React from "react";
+import React, { useContext } from "react";
 import { withRouter } from "react-router";
 import { makeStyles } from "@material-ui/core/styles";
 import withWidth, { isWidthUp } from "@material-ui/core/withWidth";
@@ -7,8 +7,11 @@ import clsx from "clsx";
 import { FormattedMessage, injectIntl } from "react-intl";
 
 import { useStateContextAuthorization } from "../../context/auth-context";
+import { IntlContext } from "../../IntlContext";
 
 import { signInUrl, signUpUrl } from "../../assets/const/url";
+
+import LanguagesSwitcher from "../LanguagesSwitcher";
 
 import {
   Headerbox,
@@ -22,7 +25,8 @@ import {
   Typography,
   Span,
   ProfileBox,
-  ProfileItem
+  ProfileItem,
+  Box
 } from "./Header.style";
 import { Grid, Divider } from "@material-ui/core";
 
@@ -51,6 +55,7 @@ const Header = ({ mainTitle, history, width }) => {
   const open = Boolean(anchorEl);
   const [auth, dispatch] = useStateContextAuthorization();
   const classes = useStyles();
+  const { switchLanguage } = useContext(IntlContext);
 
   const handleMenu = event => {
     setAnchorEl(event.currentTarget);
@@ -75,8 +80,10 @@ const Header = ({ mainTitle, history, width }) => {
                   {mainTitle}
                 </Typography>
               )}
+              {/* <Grid item></Grid> */}
               <Grid item>
-                <div>
+                <Box>
+                  <LanguagesSwitcher />
                   {Object.getOwnPropertyNames(auth).length !== 0 &&
                     auth.name &&
                     auth.surname &&
@@ -161,7 +168,7 @@ const Header = ({ mainTitle, history, width }) => {
                       </div>
                     )}
                   </Menu>
-                </div>
+                </Box>
               </Grid>
             </Grid>
           </Toolbar>
