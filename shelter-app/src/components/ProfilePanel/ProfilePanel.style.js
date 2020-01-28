@@ -3,9 +3,7 @@ import { Link as RouterLink } from "react-router-dom";
 
 import { Max } from "../../assets/mixins.style";
 
-import {
-  Button as commonButton
-} from "../../assets/common/Button.style";
+import { Button as commonButton } from "../../assets/common/Button.style";
 import {
   Grid as commonGrid,
   Typography as commonTypography,
@@ -20,7 +18,9 @@ export const Grid = styled(commonGrid)`
   `}
 `;
 
-export const Typography = styled(commonTypography)``;
+export const Typography = styled(commonTypography)`
+  color: ${props => props.theme.palette.common.text_3};
+`;
 
 export const Span = styled.span`
   ${commonSpan};
@@ -28,6 +28,7 @@ export const Span = styled.span`
   margin-top: ${props => (props.desc ? "40px" : "5px")}
   font-size: 16px;
   font-weight: 300;
+  color: ${props => props.theme.palette.common.text_3};
 `;
 
 export const Strong = styled.strong`

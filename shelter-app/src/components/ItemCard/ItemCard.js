@@ -26,23 +26,7 @@ import {
 import { Typography, Link } from "../../assets/common/Layout.style";
 import { Button } from "../../assets/common/Button.style";
 
-const useStyles = makeStyles({
-  card: {
-    minHeight: "481px",
-    maxHeight: "481px",
-    transition: ".1s",
-    backgroundColor: "rgba(255, 255, 255, .85)",
-    "&:hover .MuiCardActions-root, &:hover .MuiCardContent-root": {
-      backgroundColor: "rgba(255, 255, 255, 1)"
-    },
-    "&:hover": {
-      backgroundColor: "rgba(255, 255, 255, 1)"
-    }
-  }
-});
-
 const ItemCard = ({ data, match, favorite, handleClick, userType }) => {
-  const classes = useStyles();
   const theme = useTheme();
   const path = match.path;
   const {
@@ -60,7 +44,7 @@ const ItemCard = ({ data, match, favorite, handleClick, userType }) => {
   } = data;
 
   return (
-    <Card theme={theme} className={classes.card}>
+    <Card theme={theme}>
       {__typename === "Pet" && userType === 1 && (
         <IconButton onClick={() => handleClick(data)}>
           <FavoriteIcon theme={theme} favorite={favorite ? "true" : "false"} />

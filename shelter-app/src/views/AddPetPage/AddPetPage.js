@@ -105,7 +105,7 @@ const AddPetPage = ({ intl }) => {
         setIsSidebarOpen={setIsSidebarOpen}
       />
       <Sidebar open={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen} />
-      <Background>
+      <Background bg={false}>
         <Container theme={theme}>
           <Grid container justify="center">
             <Grid item xs={12} md={6}>

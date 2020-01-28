@@ -18,7 +18,7 @@ import StoreMallDirectory from "@material-ui/icons/StoreMallDirectory";
 export const List = styled(UI_LIST)``;
 
 export const ListItem = styled(UI_LIST_ITEM)`
-  color: ${props => props.theme.palette.common.white} !important;
+  color: ${props => props.theme.palette.common.sidebarText} !important;
 
   &:hover {
     color: ${props => props.theme.palette.common.blaze_orange} !important;

@@ -34,7 +34,7 @@ const AddPage = ({ intl }) => {
         setIsSidebarOpen={setIsSidebarOpen}
       />
       <Sidebar open={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen} />
-      <Background>
+      <Background bg={false}>
         <Container theme={theme}>
           <Grid container justify="space-around" spacing={5}>
             <Grid item xs={12} sm={6}>
@@ -50,6 +50,7 @@ const AddPage = ({ intl }) => {
                 }}
                 isLink={true}
                 Icon={PlaylistAdd}
+                theme={theme}
               />
             </Grid>
             <Grid item xs={12} sm={6}>

@@ -1,13 +1,15 @@
 import React from "react";
 
 import { useStateContextAuthorization } from "../../context/auth-context";
+import { useTheme } from "../../ThemeContext";
 
 import ItemCard from "../ItemCard/ItemCard";
 
-import { Grid } from "@material-ui/core";
+import { Grid } from "./ItemsList.style";
 
 const ItemsList = ({ data, launchMutation }) => {
   const [auth] = useStateContextAuthorization();
+  const theme = useTheme();
 
   const chooseAction = item => {
     const isFavorite = checkIsPetFavorite(item);
@@ -30,11 +32,11 @@ const ItemsList = ({ data, launchMutation }) => {
   };
 
   return (
-    <Grid container spacing={3} justify="flex-start">
+    <Grid container spacing={3} justify="flex-start" theme={theme}>
       {data.map((item, index) => {
         const favorite = checkIsPetFavorite(item);
         return (
-          <Grid item key={index} xs={12} sm={6} md={4} lg={3}>
+          <Grid item key={index} xs={12} sm={6} md={4} lg={3} theme={theme}>
             <ItemCard
               data={item}
               favorite={favorite}

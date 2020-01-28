@@ -13,6 +13,7 @@ import ProfilePanel from "../../components/ProfilePanel";
 import Gallery from "../../components/Gallery";
 import Loader from "../../components/Loader";
 import ErrorComponent from "../../components/ErrorComponent";
+import Background from "../../components/Background";
 
 import { Container, Grid } from "../../assets/common/Layout.style";
 
@@ -29,26 +30,28 @@ const PetPage = ({ intl, match }) => {
         setIsSidebarOpen={setIsSidebarOpen}
       />
       <Sidebar open={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen} />
-      <Container>
-        <Grid container justify="center">
-          <Grid item md={6} xs={12}>
-            {data && <Gallery images={data.pets[0].images} />}
+      <Background bg={false}>
+        <Container>
+          <Grid container justify="center">
+            <Grid item md={6} xs={12}>
+              {data && <Gallery images={data.pets[0].images} />}
+            </Grid>
+            <Grid item md={6} xs={12}>
+              {data && <ProfilePanel data={data.pets[0]} />}
+              {loading && <Loader />}
+              {error && (
+                <ErrorComponent
+                  title={intl.formatMessage(
+                    { id: "APP_STATE.ERROR" },
+                    { text: "" }
+                  )}
+                  text={error.message}
+                />
+              )}
+            </Grid>
           </Grid>
-          <Grid item md={6} xs={12}>
-            {data && <ProfilePanel data={data.pets[0]} />}
-            {loading && <Loader />}
-            {error && (
-              <ErrorComponent
-                title={intl.formatMessage(
-                  { id: "APP_STATE.ERROR" },
-                  { text: "" }
-                )}
-                text={error.message}
-              />
-            )}
-          </Grid>
-        </Grid>
-      </Container>
+        </Container>
+      </Background>
       <Footer />
     </>
   );

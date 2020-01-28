@@ -147,7 +147,7 @@ const Sidebar = ({ open, setIsSidebarOpen, intl, location }) => {
         {open ? (
           <Span theme={theme}>Copyright &copy; 2019 Marcin Foks</Span>
         ) : (
-          <Span bigger="true">
+          <Span theme={theme} bigger="true">
             <Copyright theme={theme} />
           </Span>
         )}

@@ -23,17 +23,18 @@ const Footer = () => {
         value={value}
         onChange={changeValue}
         theme={theme}
+        component="div"
       >
         <BottomNavigationAction
-          theme={theme.palette.common}
+          theme={theme}
           label="About us"
-          icon={<InfoIcon theme={theme.palette.common} />}
+          icon={<InfoIcon theme={theme} />}
           value="aboutUs"
         />
         <BottomNavigationAction
-          theme={theme.palette.common}
+          theme={theme}
           label="Help"
-          icon={<HelpIcon theme={theme.palette.common} />}
+          icon={<HelpIcon theme={theme} />}
           value="help"
         />
       </BottomNavigation>

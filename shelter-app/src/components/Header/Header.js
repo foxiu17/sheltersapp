@@ -7,11 +7,12 @@ import clsx from "clsx";
 import { FormattedMessage, injectIntl } from "react-intl";
 
 import { useStateContextAuthorization } from "../../context/auth-context";
-import { IntlContext } from "../../IntlContext";
+import { useTheme } from "../../ThemeContext";
 
 import { signInUrl, signUpUrl } from "../../assets/const/url";
 
 import LanguagesSwitcher from "../LanguagesSwitcher";
+import ThemeSwitcher from "../ThemeSwitcher";
 
 import {
   Headerbox,
@@ -55,7 +56,7 @@ const Header = ({ mainTitle, history, width }) => {
   const open = Boolean(anchorEl);
   const [auth, dispatch] = useStateContextAuthorization();
   const classes = useStyles();
-  const { switchLanguage } = useContext(IntlContext);
+  const theme = useTheme();
 
   const handleMenu = event => {
     setAnchorEl(event.currentTarget);
@@ -71,16 +72,16 @@ const Header = ({ mainTitle, history, width }) => {
           position="static"
           className={clsx(classes.appBar)}
           color="inherit"
+          theme={theme}
         >
           <Toolbar>
             <Grid container justify="space-between">
               <Grid item></Grid>
               {mainTitle && (
-                <Typography variant="caption" component="h6">
+                <Typography theme={theme} variant="caption" component="h6">
                   {mainTitle}
                 </Typography>
               )}
-              {/* <Grid item></Grid> */}
               <Grid item>
                 <Box>
                   <LanguagesSwitcher />
@@ -88,9 +89,9 @@ const Header = ({ mainTitle, history, width }) => {
                     auth.name &&
                     auth.surname &&
                     (isWidthUp("sm", width) ? (
-                      <Span margin="true">{`${auth.name}`}</Span>
+                      <Span theme={theme} margin="true">{`${auth.name}`}</Span>
                     ) : (
-                      <Span margin="true">
+                      <Span theme={theme} margin="true">
                         {`${auth.name.charAt(0)}${auth.surname.charAt(0)}`}
                       </Span>
                     ))}
@@ -100,10 +101,12 @@ const Header = ({ mainTitle, history, width }) => {
                     aria-haspopup="true"
                     onClick={handleMenu}
                     color="inherit"
+                    theme={theme}
                   >
-                    <AccountCircle />
+                    <AccountCircle theme={theme} />
                   </IconButton>
                   <Menu
+                    theme={theme}
                     id="menu-appbar"
                     anchorEl={anchorEl}
                     anchorOrigin={{
@@ -122,26 +125,37 @@ const Header = ({ mainTitle, history, width }) => {
                       <div>
                         <ProfileBox>
                           <ProfileItem>
-                            <AccountCircle />
+                            <AccountCircle theme={theme} />
                           </ProfileItem>
                           <ProfileItem>
                             {auth.name && auth.surname ? (
-                              <Span>{`${auth.name} ${auth.surname}`}</Span>
+                              <Span
+                                theme={theme}
+                              >{`${auth.name} ${auth.surname}`}</Span>
                             ) : (
-                              <Span>{auth.email}</Span>
+                              <Span theme={theme}>{auth.email}</Span>
                             )}
+                          </ProfileItem>
+                          <ProfileItem>
+                            <ThemeSwitcher />
                           </ProfileItem>
                         </ProfileBox>
                         <Divider />
                         <MenuItem
+                          theme={theme}
                           onClick={() => {
                             handleClose();
-                            history.push(`/edit-account/${auth.email}`);
                           }}
                         >
-                          <FormattedMessage id="HEADER.EDIT_ACCOUNT" />
+                          <Link
+                            to={`/edit-account/${auth.email}`}
+                            theme={theme}
+                          >
+                            <FormattedMessage id="HEADER.EDIT_ACCOUNT" />
+                          </Link>
                         </MenuItem>
                         <MenuItem
+                          theme={theme}
                           onClick={() => {
                             dispatch({
                               type: "logout"
@@ -150,18 +164,20 @@ const Header = ({ mainTitle, history, width }) => {
                             history.push("/");
                           }}
                         >
-                          <FormattedMessage id="HEADER.LOG_OUT" />
+                          <Link to="/" theme={theme}>
+                            <FormattedMessage id="HEADER.LOG_OUT" />
+                          </Link>
                         </MenuItem>
                       </div>
                     ) : (
                       <div>
-                        <MenuItem onClick={handleClose}>
-                          <Link to={signInUrl}>
+                        <MenuItem theme={theme} onClick={handleClose}>
+                          <Link to={signInUrl} theme={theme}>
                             <FormattedMessage id="HEADER.LOG_IN" />
                           </Link>
                         </MenuItem>
-                        <MenuItem onClick={handleClose}>
-                          <Link to={signUpUrl}>
+                        <MenuItem theme={theme} onClick={handleClose}>
+                          <Link to={signUpUrl} theme={theme}>
                             <FormattedMessage id="HEADER.REGISTRATION" />
                           </Link>
                         </MenuItem>

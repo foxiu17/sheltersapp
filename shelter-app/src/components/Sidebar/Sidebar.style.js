@@ -22,7 +22,7 @@ export const Footer = styled.div`
 
 export const Span = styled.span`
   ${commonSpan};
-  color: #fff;
+  color: ${props => props.theme.palette.common.sidebarText};
   font-size: ${props => (props.bigger === "true" ? "24px" : "12px")};
 `;
 
@@ -39,7 +39,7 @@ export const Logo = styled.img`
 `;
 
 export const Copyright = styled(UI_COPYRIGHT_ICON)`
-  color: ${props => props.theme.palette.common.white};
+  color: ${props => props.theme.palette.common.sidebarText};
 `;
 
 export const ChevronLeftIcon = styled(UI_CHEVRON_LEFT_ICON)`

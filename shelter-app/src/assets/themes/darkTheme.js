@@ -1,8 +1,8 @@
-const theme = {
+const darkTheme = {
   palette: {
     common: {
       white: "#fff",
-      header: "#fff",
+      header: "#424242",
       white_8: "rgba(255, 255, 255, 0.85)",
       black: "#000",
       black_2: "rgba(0, 0, 0, 0.23)",
@@ -15,20 +15,20 @@ const theme = {
       onahau: "#C8FEFA",
       alabaster: "#fafafa",
       alto: "#e0e0e0",
-      mercury: "#E9E7E7",
+      mercury: "#616161",
       tundora: "#424242",
       dove_grey: "#616161",
-      footer: "#616161",
-      text_1: "rgba(0, 0, 0, 0.87)",
-      text_2: "#fff",
-      text_3: "rgba(0, 0, 0, 0.87)",
-      sidebarText: "#fff",
-      card: "rgba(255, 255, 255, 1)",
-      cardHover: "rgba(255, 255, 255, 0.7)",
-      card_2: "rgba(255, 255, 255, .85)",
-      card_2Hover: "rgba(255, 255, 255, 1)",
-      infobox: "rgba(255, 255, 255, 0.95)",
-      bg: "rgba(0, 0, 0, 0.2)"
+      footer: "#424242",
+      text_1: "#6BC2BB",
+      text_2: "#6BC2BB",
+      text_3: "#e0e0e0",
+      sidebarText: "#e0e0e0",
+      card: "#e0e0e0",
+      cardHover: "rgba(224, 224, 224, 0.8)",
+      card_2: "rgba(224, 224, 224, 0.85)",
+      card_2Hover: "rgba(224, 224, 224, 1)",
+      infobox: "rgba(224, 224, 224, 0.95)",
+      bg: "rgba(0, 0, 0, 0.54)"
     },
     notification: {
       roman: "#dc6f60",
@@ -38,4 +38,4 @@ const theme = {
   }
 };
 
-export default theme;
+export default darkTheme;

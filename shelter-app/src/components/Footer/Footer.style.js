@@ -13,6 +13,9 @@ export const Footerbox = styled.div`
   display: block;
   width: 100%;
   z-index: 1000;
+  & .MuiBottomNavigation-root {
+    background-color: ${props => props.theme.palette.common.footer};
+  }
 `;
 
 export const BottomNavigation = styled(UI_BOTTOM_NAVIGATION)`
@@ -20,26 +23,25 @@ export const BottomNavigation = styled(UI_BOTTOM_NAVIGATION)`
   align-items: center;
   min-height: 70px;
   padding-left: 100px;
-  background-color: #424242 !important;
 `;
 
 export const BottomNavigationAction = styled(UI_BOTTOM_NAVIGATION_ACTION)`
   flex: 0 !important;
   padding-top: 0px !important;
-  color: #fff !important;
+  color: ${props => props.theme.palette.common.text_2} !important;
 
   .MuiBottomNavigationAction-label.Mui-selected {
     font-size: 10px !important;
-    color: #fff !important;
+    color: ${props => props.theme.palette.common.text_2} !important;
   }
 `;
 
 export const InfoIcon = styled(UI_INFO_ICON)`
-  color: ${props => props.theme.white};
+  color: ${props => props.theme.palette.common.text_2};
 `;
 
 export const HelpIcon = styled(UI_HELP_ICON)`
-  color: ${props => props.theme.white};
+  color: ${props => props.theme.palette.common.text_2};
 `;
 
 export const IconButton = styled(UI_ICON_BUTTON)``;

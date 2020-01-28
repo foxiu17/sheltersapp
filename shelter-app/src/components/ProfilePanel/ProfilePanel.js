@@ -40,12 +40,12 @@ const ProfilePanel = ({ data, history, match }) => {
     <Grid container>
       <Grid item xs={12}>
         {name && (
-          <Typography variant="h5" component="h2" gutterBottom>
+          <Typography theme={theme} variant="h5" component="h2" gutterBottom>
             {name}
           </Typography>
         )}
         {type && (
-          <Span>
+          <Span theme={theme}>
             <Strong>
               <FormattedMessage id="APP_LABEL.GENRE" />:{" "}
             </Strong>
@@ -54,31 +54,31 @@ const ProfilePanel = ({ data, history, match }) => {
         )}
         {shelter && (
           <>
-            <Span>
+            <Span theme={theme}>
               <Strong>
                 <FormattedMessage id="APP_LABEL.SHELTER" />:{" "}
               </Strong>
               {shelter.name}
             </Span>
-            <Span>
+            <Span theme={theme}>
               <Strong>
                 <FormattedMessage id="APP_LABEL.VOIVODESHIP" />:{" "}
               </Strong>
               {shelter.voivodeship}
             </Span>
-            <Span>
+            <Span theme={theme}>
               <Strong>
                 <FormattedMessage id="APP_LABEL.CITY" />:{" "}
               </Strong>
               {shelter.city}
             </Span>
-            <Span>
+            <Span theme={theme}>
               <Strong>
                 <FormattedMessage id="APP_LABEL.SHELTER_ADDRESS" />:{" "}
               </Strong>
               {shelter.address}
             </Span>
-            <Span>
+            <Span theme={theme}>
               <Strong>
                 <FormattedMessage id="APP_LABEL.SHELTER_PHONE" />:{" "}
               </Strong>
@@ -87,7 +87,7 @@ const ProfilePanel = ({ data, history, match }) => {
           </>
         )}
         {voivodeship && (
-          <Span>
+          <Span theme={theme}>
             <Strong>
               <FormattedMessage id="APP_LABEL.VOIVODESHIP" />:{" "}
             </Strong>
@@ -95,7 +95,7 @@ const ProfilePanel = ({ data, history, match }) => {
           </Span>
         )}
         {city && (
-          <Span>
+          <Span theme={theme}>
             <Strong>
               <FormattedMessage id="APP_LABEL.CITY" />:{" "}
             </Strong>
@@ -103,7 +103,7 @@ const ProfilePanel = ({ data, history, match }) => {
           </Span>
         )}
         {address && (
-          <Span>
+          <Span theme={theme}>
             <Strong>
               <FormattedMessage id="APP_LABEL.ADDRESS" />:{" "}
             </Strong>
@@ -111,7 +111,7 @@ const ProfilePanel = ({ data, history, match }) => {
           </Span>
         )}
         {phone && (
-          <Span>
+          <Span theme={theme}>
             <Strong>
               <FormattedMessage id="APP_LABEL.PHONE" />:{" "}
             </Strong>
@@ -119,7 +119,7 @@ const ProfilePanel = ({ data, history, match }) => {
           </Span>
         )}
         {pets && (
-          <Span>
+          <Span theme={theme}>
             <Strong>
               <FormattedMessage id="APP_LABEL.PETS_COUNT" />:{" "}
             </Strong>
@@ -127,14 +127,18 @@ const ProfilePanel = ({ data, history, match }) => {
           </Span>
         )}
         {age && (
-          <Span>
+          <Span theme={theme}>
             <Strong>
               <FormattedMessage id="APP_LABEL.AGE" />:{" "}
             </Strong>
             {age}
           </Span>
         )}
-        {description && <Span desc="true">{description}</Span>}
+        {description && (
+          <Span theme={theme} desc="true">
+            {description}
+          </Span>
+        )}
       </Grid>
       <Grid item xs={12}>
         <ButtonBox>

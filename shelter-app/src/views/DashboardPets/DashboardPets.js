@@ -117,7 +117,7 @@ const DashboardPets = ({ intl }) => {
         setIsSidebarOpen={setIsSidebarOpen}
       />
       <Sidebar open={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen} />
-      <Background>
+      <Background bg={false}>
         <Container theme={theme}>
           <Grid container justify="space-around">
             {data && !error && data.pets.length > 0 && (

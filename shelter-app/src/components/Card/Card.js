@@ -3,31 +3,25 @@ import { makeStyles } from "@material-ui/core/styles";
 
 import { useTheme } from "../../ThemeContext";
 
-import { CardBox, CardActions, CardContent, Typography } from "./Card.style";
-import { Link } from "../../assets/common/Layout.style";
+import {
+  Link,
+  CardBox,
+  CardActions,
+  CardContent,
+  Typography
+} from "./Card.style";
 import { Button } from "../../assets/common/Button.style";
 
 import Divider from "@material-ui/core/Divider";
 
-const useStyles = makeStyles({
-  card: {
-    transition: ".1s",
-    backgroundColor: "rgba(255, 255, 255, 1)",
-    "&:hover": {
-      backgroundColor: "rgba(255, 255, 255, .9)"
-    }
-  }
-});
-
 const Card = ({ data, isLink = false, Icon }) => {
-  const classes = useStyles();
   const theme = useTheme();
   const { text, url, linkTitle } = data;
   return (
     <>
       {isLink ? (
         <Link to={url} theme={theme}>
-          <CardBox theme={theme} className={classes.card}>
+          <CardBox theme={theme}>
             <CardContent>
               {Icon && <Icon style={{ margin: "10px 0", fontSize: 40 }} />}
               <Divider />

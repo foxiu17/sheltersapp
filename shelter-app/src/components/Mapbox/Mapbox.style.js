@@ -15,7 +15,7 @@ export const InfoboxContainer = styled.div`
   min-width: 200px;
   max-width: 250px;
   padding: 12px;
-  background-color: ${props => props.theme.palette.common.white};
+  background-color: ${props => props.theme.palette.common.infobox};
   border-radius: 4px;
   border: 1px solid ${props => props.theme.palette.common.alto};
   opacity: 0.85;

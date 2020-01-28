@@ -15,26 +15,46 @@ import UI_ACCOUNT_CIRCLE from "@material-ui/icons/AccountCircle";
 export const Headerbox = styled.div`
   display: block;
   position: relative;
+  background-color: red !important;
 `;
 
-export const AppBar = styled(UI_APPBAR)``;
+export const AppBar = styled(UI_APPBAR)`
+  background-color: ${props => props.theme.palette.common.header} !important;
+`;
 
 export const Toolbar = styled(UI_TOOLBAR)``;
 
-export const IconButton = styled(UI_ICON_BUTTON)``;
+export const IconButton = styled(UI_ICON_BUTTON)`
+  & .MuiIconButton-colorInherit {
+    color: ${props => props.theme.palette.common.switch};
+  }
+`;
 
 export const MenuIcon = styled(UI_MENU_ICON)``;
 
-export const MenuItem = styled(UI_MENU_ITEM)``;
+export const MenuItem = styled(UI_MENU_ITEM)`
+  & .MuiMenuItem-root > span {
+    color: ${props => props.theme.palette.common.text_1} !important;
+  }
+  & .MuiButtonBase-root > span {
+    color: ${props => props.theme.palette.common.text_1} !important;
+  }
+`;
 
 export const MenuIconBox = styled(UI_GRID)``;
 
-export const AccountCircle = styled(UI_ACCOUNT_CIRCLE)``;
+export const AccountCircle = styled(UI_ACCOUNT_CIRCLE)`
+  color: ${props => props.theme.palette.common.switch};
+`;
 
-export const Menu = styled(UI_MENU)``;
+export const Menu = styled(UI_MENU)`
+  & .MuiMenu-paper {
+    background-color: ${props => props.theme.palette.common.header} !important;
+  }
+`;
 
 export const Link = styled(RouterLink)`
-  color: inherit;
+  color: ${props => props.theme.palette.common.text_1};
   text-decoration: none;
 `;
 
@@ -45,10 +65,12 @@ export const Typography = styled(UI_TYPOGRAPHY)`
   transform: translateY(-50%);
   font-family: "Ibarra Real Nova", serif !important;
   font-weight: 600 !important;
+  color: ${props => props.theme.palette.common.text_1};
 `;
 
 export const Span = styled.span`
   margin-right: ${props => (props.margin === "true" ? "5px" : "0")};
+  color: ${props => props.theme.palette.common.text_1};
 `;
 
 export const ProfileBox = styled.div`
