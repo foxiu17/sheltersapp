@@ -2,7 +2,6 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const graphqlHttp = require("express-graphql");
 const mongoose = require("mongoose");
-const multer = require("multer");
 
 const url = `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@mongodbbase-r2irl.mongodb.net/${process.env.MONGO_DB}?retryWrites=true&w=majority`;
 
@@ -11,22 +10,6 @@ const Resolvers = require("./resolvers/resolvers");
 const isAuth = require("./middleware/is-auth");
 
 const app = express();
-
-// const storage = multer.diskStorage({
-//   destination: function(req, file, cb) {
-//     cb(null, "uploads/");
-//   },
-//   filename: function(req, file, cb) {
-//     cb(null, file.fieldname + "-" + Date.now());
-//   }
-// });
-// const upload = multer({ storage: storage });
-
-// app.use(
-//   multer({
-//     storage: storage
-//   }).single("image")
-// );
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json({ limit: "10mb" }));

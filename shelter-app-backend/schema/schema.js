@@ -12,6 +12,7 @@ module.exports = buildSchema(`
     description: String
     phone: String
     address: String
+    email: String
     images: Image
     pets: [Pet!]
   }
@@ -85,7 +86,7 @@ module.exports = buildSchema(`
 
     editAccount(email: String!, newPassword: String, oldPassword: String!): Response
 
-    addShelter(name: String, lat: String, lng: String, voivodeship: String, city: String, description: String, phone: String, address: String, images: ImageInput): Shelter
+    addShelter(name: String, lat: String, lng: String, voivodeship: String, city: String, description: String, phone: String, address: String, email: String, images: ImageInput): Shelter
 
     addPet(type: String, name: String, age: Int, description: String, sex: String, shelter: ID, images: ImageInput): Pet
 
@@ -96,6 +97,8 @@ module.exports = buildSchema(`
     removeShelter(name: String, id: ID): Response
 
     removePet(id: ID): Response
+
+    sendEmail(userEmail: String!, shelterEmail: String!, subject: String!, message: String! ): Response
   }
 
   schema {

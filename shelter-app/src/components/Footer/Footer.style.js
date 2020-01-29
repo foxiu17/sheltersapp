@@ -12,7 +12,7 @@ export const Footerbox = styled.div`
   left: 0;
   display: block;
   width: 100%;
-  z-index: 1000;
+  z-index: 100;
   & .MuiBottomNavigation-root {
     background-color: ${props => props.theme.palette.common.footer};
   }

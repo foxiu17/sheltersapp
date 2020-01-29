@@ -5,6 +5,7 @@ import UI_ICON_BUTTON from "@material-ui/core/IconButton";
 import UI_CLOSE_ICON from "@material-ui/icons/Close";
 
 export const SnackbarWrapper = styled(UI_SNACKBAR)`
+  bottom: 75px !important;
   .MuiSnackbarContent-root {
     background-color: ${props =>
       props.success === "success"

@@ -29,7 +29,11 @@ export const Container = styled(UI_CONTAINER)`
   `};
 `;
 
-export const Grid = styled(UI_GRID)``;
+export const Grid = styled(UI_GRID)`
+  & .MuiPaper-root {
+    background-color: #e0e0e0;
+  }
+`;
 
 export const Typography = styled(UI_TYPOGRAPHY)`
   text-align: ${props => (props.position ? props.position : "left")};

@@ -40,8 +40,8 @@ const SignInPage = ({ intl, history }) => {
   };
 
   useEffect(() => {
-    if (data && data !== undefined) letLogIn();
-    if (data !== undefined) {
+    if (data && data !== undefined) {
+      letLogIn();
       history.push("/");
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps

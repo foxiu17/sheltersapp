@@ -1,8 +1,6 @@
 const Pet = require("../../models/Pet/Pet");
 const Shelter = require("../../models/Shelter/Shelter");
 const Account = require("../../models/Account/Account");
-const multer = require("multer");
-const upload = multer({ dest: "uploads/" });
 
 module.exports = {
   pets: async ({

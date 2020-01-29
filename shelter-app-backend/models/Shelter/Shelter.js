@@ -35,6 +35,10 @@ const shelterSchema = new Schema({
     type: String,
     required: false
   },
+  email: {
+    type: String,
+    require: false
+  },
   images: {
     name: {
       type: String,

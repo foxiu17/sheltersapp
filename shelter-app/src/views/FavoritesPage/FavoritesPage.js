@@ -14,7 +14,6 @@ import Footer from "../../components/Footer";
 import ItemsList from "../../components/ItemsList";
 import Sidebar from "../../components/Sidebar";
 import Loader from "../../components/Loader";
-// import Search from "../../components/Search";
 import ErrorComponent from "../../components/ErrorComponent";
 import Background from "../../components/Background";
 
@@ -25,7 +24,6 @@ import bg from "../../assets/images/backgrounds/bg-2.jpg";
 const FavoritesPage = ({ intl }) => {
   const theme = useTheme();
   const [auth] = useStateContextAuthorization();
-  // const [shelter] = useState(undefined);
   const [variables] = useState({});
   const { loading, error, data } = useQuery(GET_FAVORITE_PETS, {
     variables: {
@@ -50,29 +48,6 @@ const FavoritesPage = ({ intl }) => {
   });
 
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-
-  // const getFilteredPets = values => {
-  //   setVariables({
-  //     type: values.genre ? values.genre.toString() : undefined,
-  //     voivodeship: values.voivodeship
-  //       ? values.voivodeship.toString()
-  //       : undefined,
-  //     city: values.city ? values.city.toString() : undefined,
-  //     age: values.age ? parseInt(values.age) : undefined,
-  //     name: values.name ? values.name.toString() : undefined
-  //   });
-  // };
-
-  // const clearFilter = () => {
-  //   setVariables({});
-  // };
-
-  // const removeFilterChip = (label, prop) => {
-  //   setVariables({
-  //     ...variables,
-  //     [prop]: undefined
-  //   });
-  // };
 
   const launchMutation = (petID, userID, isFavorite) => {
     if (isFavorite) {
@@ -104,13 +79,6 @@ const FavoritesPage = ({ intl }) => {
           )}
           <Grid container justify="center">
             <Grid item xs={12}>
-              {/* <Search
-                onSubmit={getFilteredPets}
-                clearFilter={clearFilter}
-                handleDelete={removeFilterChip}
-                variables={variables}
-                version={shelter !== undefined ? 2 : 1}
-              /> */}
               {data && !error && data.userPets.length > 0 && (
                 <ItemsList
                   data={data.userPets}

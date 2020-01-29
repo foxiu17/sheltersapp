@@ -52,6 +52,7 @@ module.exports = {
       description: args.description,
       phone: args.phone,
       address: args.address,
+      email: args.email,
       images: args.images
     });
 
