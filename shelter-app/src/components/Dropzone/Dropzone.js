@@ -29,14 +29,10 @@ function MyDropzone({ intl, currentImages, setCurrentImages }) {
         reader.onabort = () => console.log("file reading was aborted");
         reader.onerror = () => console.log("file reading has failed");
         reader.onload = () => {
-          // Do whatever you want with the file contents
-          const binaryStr = reader.result;
-          console.log(file);
           setCurrentImages({
             name: file.name,
             file: file
           });
-          // setCurrentImages(prevImages => [...prevImages, binaryStr]);
         };
         reader.readAsDataURL(file);
       });

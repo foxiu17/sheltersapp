@@ -57,9 +57,6 @@ const ShelterPage = ({ intl, match }) => {
   };
 
   const submitEmail = values => {
-    console.log("values: ", values);
-    console.log("data: ", data.shelters[0].email);
-
     sendEmail({
       variables: {
         userEmail: values.userEmail,
@@ -88,9 +85,6 @@ const ShelterPage = ({ intl, match }) => {
     };
   }, [queryError, intl]);
 
-  console.log("queryError: ", queryError);
-  console.log("queryLoading: ", queryLoading);
-  console.log("queryData: ", queryData);
   return (
     <>
       <Helmet title={intl.formatMessage({ id: "APP_TITLE.SHELTER_PAGE" })} />
