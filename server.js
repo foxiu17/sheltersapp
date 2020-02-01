@@ -60,7 +60,7 @@ mongoose
   .then(() => {
     app.listen(port, (res, req) => {
       console.log(process.env.NODE_ENV);
-      console.log(`server listening on port ${port}`);
+      console.log(`server listening on port - ${port}`);
     });
   })
   .catch(err => {
