@@ -24,6 +24,7 @@
     "react-final-form": "^6.3.0",
     "react-google-maps": "^9.4.5",
     "react-helmet": "^5.2.1",
+    "react-helmet-async": "^1.0.4",
     "react-intl": "^2.9.0",
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.0.1",
