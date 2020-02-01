@@ -56,7 +56,7 @@ const ItemCard = ({ data, match, favorite, handleClick, userType }) => {
         ) : (
           <CardMedia component="div" title={data ? name : "Pet"}>
             <Image
-              cloudName={config.cloudName}
+              cloudName="foxsheltersappimages"
               publicId={images.publicId}
               crop="scale"
             />

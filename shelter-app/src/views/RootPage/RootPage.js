@@ -74,7 +74,7 @@ const RootPage = ({ intl }) => {
           })}
         {data && (
           <Mapbox
-            googleMapURL={`https://maps.googleapis.com/maps/api/js?key=${config.googleApiKey}&v=3.exp&libraries=geometry,drawing,places`}
+            googleMapURL={`https://maps.googleapis.com/maps/api/js?key=AIzaSyDekrf2bx2vOiVUKSRbQuLQOqR86UYQHwA&v=3.exp&libraries=geometry,drawing,places`}
             loadingElement={<div style={{ width: "100%", height: `100%` }} />}
             containerElement={
               <div
