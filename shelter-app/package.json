@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "proxy": "http://localhost:8000",
+  "engines": {
+    "node": "10.15.0"
+  },
   "dependencies": {
     "@apollo/react-hooks": "^3.1.2",
     "@material-ui/core": "^4.8.3",

@@ -4,6 +4,9 @@
   "main": "index.js",
   "author": "Marcin Foks",
   "license": "MIT",
+  "engines": {
+    "node": "10.15.0"
+  },
   "scripts": {
     "start": "nodemon server.js",
     "heroku-postbuild": "yarn install && cd shelter-app && yarn install && yarn run build"
