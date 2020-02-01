@@ -41,7 +41,7 @@ const Gallery = ({ images }) => {
           <ImageBox key={index}>
             {images !== undefined ? (
               <Image
-                cloudName={process.env.REACT_APP_CLOUDINARY_NAME}
+                cloudName="foxsheltersappimages"
                 publicId={images.publicId}
                 crop="scale"
               />

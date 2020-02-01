@@ -51,7 +51,7 @@ const MapInfoBox = ({ data, handleCloseInfoBox }) => {
           <InfoboxItem>
             <ImageBox>
               <Image
-                cloudName={process.env.REACT_APP_CLOUDINARY_NAME}
+                cloudName="foxsheltersappimages"
                 publicId={images.publicId}
                 crop="scale"
               />
