@@ -1,8 +1,8 @@
 import React from "react";
 import { withRouter } from "react-router";
 import { FormattedMessage, injectIntl } from "react-intl";
-import { makeStyles } from "@material-ui/core/styles";
 import { Image } from "cloudinary-react";
+import { config } from "../../config";
 
 import { useTheme } from "../../ThemeContext";
 
@@ -23,7 +23,7 @@ import {
   Span,
   Strong
 } from "./ItemCard.style";
-import { Typography, Link } from "../../assets/common/Layout.style";
+import { Link } from "../../assets/common/Layout.style";
 import { Button } from "../../assets/common/Button.style";
 
 const ItemCard = ({ data, match, favorite, handleClick, userType }) => {
@@ -56,7 +56,7 @@ const ItemCard = ({ data, match, favorite, handleClick, userType }) => {
         ) : (
           <CardMedia component="div" title={data ? name : "Pet"}>
             <Image
-              cloudName={process.env.REACT_APP_CLOUDINARY_NAME}
+              cloudName={config.cloudName}
               publicId={images.publicId}
               crop="scale"
             />
