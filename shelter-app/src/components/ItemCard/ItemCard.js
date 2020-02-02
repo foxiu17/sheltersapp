@@ -139,7 +139,7 @@ const ItemCard = ({ data, match, favorite, handleClick, userType }) => {
         )}
       </CardContent>
       <CardActions theme={theme}>
-        <Button color="primary" theme={theme}>
+        <Button color="inherit" theme={theme}>
           <Link
             to={
               path.toString() === "/pets-page" ||

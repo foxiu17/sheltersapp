@@ -22,7 +22,11 @@ export const Card = styled(UI_CARD)`
 
 export const CardActionArea = styled(UI_CARD_ACTION_AREA)``;
 
-export const CardActions = styled(UI_CARD_ACTION)``;
+export const CardActions = styled(UI_CARD_ACTION)`
+  & .MuiButton-textPrimary {
+    color: ${props => props.theme.palette.common.white};
+  }
+`;
 
 export const CardContent = styled(UI_CARD_CONTENT)``;
 

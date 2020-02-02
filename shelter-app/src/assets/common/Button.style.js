@@ -12,6 +12,10 @@ export const ButtonBox = css`
 
 export const Button = styled(UI_BUTTON)`
   background-color: ${props => props.theme.palette.common.fountain_blue};
+
+  & .MuiButton-textPrimary {
+    color: ${props => props.theme.palette.common.white};
+  }
 `;
 
 export const IconButton = styled(UI_ICON_BUTTON)`
