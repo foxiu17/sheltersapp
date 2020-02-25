@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-expressions */
-import React, { useContext } from "react";
+import React from "react";
 import { withRouter } from "react-router";
+import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/styles";
 import withWidth, { isWidthUp } from "@material-ui/core/withWidth";
 import clsx from "clsx";
@@ -192,6 +193,12 @@ const Header = ({ mainTitle, history, width }) => {
       </Headerbox>
     </>
   );
+};
+
+Header.propTypes = {
+  mainTitle: PropTypes.string,
+  history: PropTypes.object,
+  width: PropTypes.string
 };
 
 export default withRouter(injectIntl(withWidth()(Header)));

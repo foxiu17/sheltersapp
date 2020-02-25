@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { injectIntl, FormattedMessage } from "react-intl";
 
 import { useTheme } from "../../ThemeContext";
@@ -51,6 +52,15 @@ const Modal = ({
       </DialogActions>
     </Dialog>
   );
+};
+
+Modal.propTypes = {
+  handleClose: PropTypes.func,
+  handleConfirmAction: PropTypes.func,
+  open: PropTypes.bool,
+  name: PropTypes.string,
+  modalTitle: PropTypes.string,
+  modalText: PropTypes.string
 };
 
 export default injectIntl(Modal);

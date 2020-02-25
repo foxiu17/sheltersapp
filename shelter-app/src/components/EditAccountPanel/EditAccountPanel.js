@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { injectIntl, FormattedMessage } from "react-intl";
 import { Form, Field } from "react-final-form";
 import { withRouter } from "react-router-dom";
+import PropTypes from "prop-types";
 
 import validator, { composeValidators } from "../Validation/";
 
@@ -19,20 +20,11 @@ import {
   FormBox,
   ButtonBox,
   Button,
-  ErrorBox,
-  ErrorNotification,
   ErrorLabel
 } from "./EditAccountPanel.style";
 import { TextField } from "../../assets/common/Input.style";
 
-const EditAccountPanel = ({
-  onSubmit = () => {},
-  // TODO: wprowadzić default propsy
-  intl,
-  history,
-  loading,
-  email = ""
-}) => {
+const EditAccountPanel = ({ onSubmit, intl, history, loading, email }) => {
   const theme = useTheme();
   const [hideNewPassword, setHideNewPassword] = useState(true);
   const [hideOldPassword, setHideOldPassword] = useState(true);
@@ -196,6 +188,19 @@ const EditAccountPanel = ({
       />
     </Paper>
   );
+};
+
+EditAccountPanel.defaultProps = {
+  onSubmit: () => {},
+  email: ""
+};
+
+EditAccountPanel.propTypes = {
+  onSubmit: PropTypes.func,
+  intl: PropTypes.object,
+  loading: PropTypes.bool,
+  history: PropTypes.object,
+  email: PropTypes.string
 };
 
 export default withRouter(injectIntl(EditAccountPanel));

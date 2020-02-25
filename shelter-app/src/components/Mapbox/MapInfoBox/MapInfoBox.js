@@ -2,6 +2,7 @@ import React from "react";
 import { withRouter } from "react-router";
 import { FormattedMessage, injectIntl } from "react-intl";
 import { Image } from "cloudinary-react";
+import PropTypes from "prop-types";
 
 import { useTheme } from "../../../ThemeContext";
 
@@ -83,6 +84,11 @@ const MapInfoBox = ({ data, handleCloseInfoBox }) => {
       </InfoboxContainer>
     </InfoBox>
   );
+};
+
+MapInfoBox.propTypes = {
+  data: PropTypes.object,
+  handleCloseInfoBox: PropTypes.func
 };
 
 export default withRouter(injectIntl(MapInfoBox));

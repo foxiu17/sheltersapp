@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { injectIntl } from "react-intl";
+import PropTypes from "prop-types";
 
 import { useTheme } from "../../ThemeContext";
 
@@ -20,8 +21,8 @@ const TableWrapper = ({
   headlines,
   data,
   intl,
-  sortColumn = "index",
-  sortDirection = "DESC"
+  sortColumn,
+  sortDirection
 }) => {
   const theme = useTheme();
   const [currentSortDirection, setCurrentSortDirection] = useState(
@@ -113,6 +114,19 @@ const TableWrapper = ({
       </TableBox>
     </Paper>
   );
+};
+
+Table.defaultProps = {
+  sortColumn: "index",
+  sortDirection: "DESC"
+};
+
+Table.propTypes = {
+  headlines: PropTypes.array,
+  data: PropTypes.array,
+  intl: PropTypes.object,
+  sortColumn: PropTypes.string,
+  sortDirection: PropTypes.string
 };
 
 export default injectIntl(TableWrapper);

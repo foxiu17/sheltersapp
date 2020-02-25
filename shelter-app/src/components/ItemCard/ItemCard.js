@@ -1,8 +1,8 @@
 import React from "react";
 import { withRouter } from "react-router";
+import PropTypes from "prop-types";
 import { FormattedMessage, injectIntl } from "react-intl";
 import { Image } from "cloudinary-react";
-import { config } from "../../config";
 
 import { useTheme } from "../../ThemeContext";
 
@@ -159,5 +159,13 @@ const ItemCard = ({ data, match, favorite, handleClick, userType }) => {
     </Card>
   );
 };
+
+ItemCard.propTypes = {
+  data: PropTypes.object,
+  match: PropTypes.object,
+  favorite: PropTypes.bool,
+  handleClick: PropTypes.func,
+  userType: PropTypes.number
+}
 
 export default withRouter(injectIntl(ItemCard));

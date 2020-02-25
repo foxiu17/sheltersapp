@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { injectIntl, FormattedMessage } from "react-intl";
 import { Form, Field } from "react-final-form";
 import { withRouter } from "react-router-dom";
+import PropTypes from "prop-types";
 
 import { useTheme } from "../../ThemeContext";
 
@@ -22,9 +23,12 @@ import {
 
 import { TextField } from "../../assets/common/Input.style";
 
-const AddShelterForm = ({ onSubmit = () => {}, intl, loading, history }) => {
+const AddShelterForm = ({ onSubmit, intl, loading, history }) => {
   const theme = useTheme();
-  const [currentImages, setCurrentImages] = useState([]);
+  const [currentImages, setCurrentImages] = useState({
+    name: "",
+    file: null
+  });
   const [voivodeship, setVoivodeship] = useState("");
 
   const handleChange = event => {
@@ -262,6 +266,17 @@ const AddShelterForm = ({ onSubmit = () => {}, intl, loading, history }) => {
       />
     </Paper>
   );
+};
+
+AddShelterForm.defaultProps = {
+  onSubmit: () => {}
+};
+
+AddShelterForm.propTypes = {
+  onSubmit: PropTypes.func,
+  intl: PropTypes.object,
+  loading: PropTypes.bool,
+  history: PropTypes.object
 };
 
 export default withRouter(injectIntl(AddShelterForm));

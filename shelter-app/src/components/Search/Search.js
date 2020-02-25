@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { withRouter } from "react-router";
+import PropTypes from "prop-types";
 import { injectIntl, FormattedMessage } from "react-intl";
 import { Form, Field } from "react-final-form";
 
@@ -20,11 +21,11 @@ import {
 import { TextField } from "../../assets/common/Input.style";
 
 const Search = ({
-  onSubmit = () => {},
+  onSubmit,
   clearFilter,
-  version = 1,
+  version,
   handleDelete,
-  variables = {},
+  variables,
   intl
 }) => {
   const theme = useTheme();
@@ -292,6 +293,21 @@ const Search = ({
       <ChipsBox>{renderFilterChips()}</ChipsBox>
     </Paper>
   );
+};
+
+Search.defaultProps = {
+  onSubmit: () => {},
+  version: 1,
+  variables: {}
+};
+
+Search.propTypes = {
+  onSubmit: PropTypes.func,
+  clearFilter: PropTypes.func,
+  version: PropTypes.number,
+  handleDelete: PropTypes.func,
+  variables: PropTypes.object,
+  intl: PropTypes.object
 };
 
 export default withRouter(injectIntl(Search));

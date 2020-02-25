@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 import { useStateContextAuthorization } from "../../context/auth-context";
 import { useTheme } from "../../ThemeContext";
@@ -48,6 +49,11 @@ const ItemsList = ({ data, launchMutation }) => {
       })}
     </Grid>
   );
+};
+
+ItemsList.propTypes = {
+  data: PropTypes.array,
+  launchMutation: PropTypes.func
 };
 
 export default ItemsList;

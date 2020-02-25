@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 import { useTheme } from "../../ThemeContext";
 
@@ -13,7 +14,8 @@ import { Button } from "../../assets/common/Button.style";
 
 import Divider from "@material-ui/core/Divider";
 
-const Card = ({ data, isLink = false, Icon }) => {
+
+const Card = ({ data, isLink, Icon }) => {
   const theme = useTheme();
   const { text, url, linkTitle } = data;
   return (
@@ -43,13 +45,23 @@ const Card = ({ data, isLink = false, Icon }) => {
             <CardActions>
               {data && url && linkTitle && (
                 <Button href={url}>{linkTitle}</Button>
-              )}
+                )}
             </CardActions>
           </CardContent>
         </CardBox>
       )}
     </>
   );
+};
+
+Card.defaultProps = {
+  isLink: false
+};
+
+Card.propTypes = {
+  data: PropTypes.object,
+  isLink: PropTypes.bool,
+  Icon: PropTypes.elementType
 };
 
 export default Card;

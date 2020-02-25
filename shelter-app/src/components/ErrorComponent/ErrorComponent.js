@@ -1,6 +1,12 @@
 import React from "react";
+import PropTypes from "prop-types";
 
-import { ErrorContainer, ErrorItem, Typography, Image } from "./ErrorComponent.style";
+import {
+  ErrorContainer,
+  ErrorItem,
+  Typography,
+  Image
+} from "./ErrorComponent.style";
 
 import image from "../../assets/images/error/error-dog.svg";
 
@@ -24,6 +30,11 @@ const ErrorComponent = ({ title, text }) => {
       </ErrorItem>
     </ErrorContainer>
   );
+};
+
+ErrorComponent.propTypes = {
+  title: PropTypes.string,
+  text: PropTypes.string
 };
 
 export default ErrorComponent;

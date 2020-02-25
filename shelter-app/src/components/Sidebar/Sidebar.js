@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { withRouter } from "react-router";
 import { injectIntl } from "react-intl";
 import { makeStyles } from "@material-ui/core/styles";
@@ -84,7 +85,7 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(3)
   }
 }));
-const Sidebar = ({ open, setIsSidebarOpen, intl, location }) => {
+const Sidebar = ({ open, setIsSidebarOpen }) => {
   const theme = useTheme();
   const [auth] = useStateContextAuthorization();
   const classes = useStyles();
@@ -139,6 +140,11 @@ const Sidebar = ({ open, setIsSidebarOpen, intl, location }) => {
       </Footer>
     </Drawer>
   );
+};
+
+Sidebar.propTypes = {
+  open: PropTypes.bool,
+  setIsSidebarOpen: PropTypes.func
 };
 
 export default withRouter(injectIntl(Sidebar));

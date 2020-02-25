@@ -1,5 +1,6 @@
 import React from "react";
 import Slider from "react-slick";
+import PropTypes from "prop-types";
 import { Image } from "cloudinary-react";
 
 import { ImageBox, CustomImage } from "./Gallery.style";
@@ -53,6 +54,10 @@ const Gallery = ({ images }) => {
       })}
     </Slider>
   );
+};
+
+Gallery.propTypes = {
+  images: PropTypes.object
 };
 
 export default Gallery;

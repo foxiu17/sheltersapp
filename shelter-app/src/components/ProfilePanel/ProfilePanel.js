@@ -1,6 +1,7 @@
 import React from "react";
 import { injectIntl, FormattedMessage } from "react-intl";
 import { withRouter } from "react-router";
+import PropTypes from "prop-types";
 
 import { useTheme } from "../../ThemeContext";
 
@@ -165,6 +166,12 @@ const ProfilePanel = ({ data, history, match }) => {
       </Grid>
     </Grid>
   );
+};
+
+ProfilePanel.propTypes = {
+  data: PropTypes.object,
+  history: PropTypes.object,
+  match: PropTypes.object
 };
 
 export default withRouter(injectIntl(ProfilePanel));

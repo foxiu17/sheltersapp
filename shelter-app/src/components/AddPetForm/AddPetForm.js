@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { injectIntl, FormattedMessage } from "react-intl";
 import { Form, Field } from "react-final-form";
 import { withRouter } from "react-router-dom";
+import PropTypes from "prop-types";
 
 import { useTheme } from "../../ThemeContext";
 
@@ -17,15 +18,7 @@ import {
 
 import { TextField } from "../../assets/common/Input.style";
 
-const AddPetForm = ({
-  onSubmit = () => {},
-  // TODO: wprowadzić default propsy
-  intl,
-  shelters = [],
-  loading,
-  history
-}) => {
-  // const [currentImages, setCurrentImages] = useState([]);
+const AddPetForm = ({ onSubmit, intl, shelters, loading, history }) => {
   const [currentImages, setCurrentImages] = useState({
     name: "",
     file: null
@@ -251,6 +244,19 @@ const AddPetForm = ({
       />
     </Paper>
   );
+};
+
+AddPetForm.defaultProps = {
+  onSubmit: () => {},
+  shelters: []
+};
+
+AddPetForm.propTypes = {
+  onSubmit: PropTypes.func,
+  intl: PropTypes.object,
+  loading: PropTypes.bool,
+  shelters: PropTypes.array,
+  history: PropTypes.object
 };
 
 export default withRouter(injectIntl(AddPetForm));

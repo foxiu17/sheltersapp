@@ -1,6 +1,7 @@
 import React, { useCallback } from "react";
 import { useDropzone } from "react-dropzone";
 import { injectIntl, FormattedMessage } from "react-intl";
+import PropTypes from "prop-types";
 
 import { useTheme } from "../../ThemeContext";
 
@@ -8,18 +9,11 @@ import {
   Container,
   UploadedList,
   UploadedItem,
-  Paragraph,
-  Image
+  Paragraph
 } from "./Dropzone.style";
 
-function MyDropzone({ intl, currentImages, setCurrentImages }) {
+function MyDropzone({ currentImages, setCurrentImages }) {
   const theme = useTheme();
-
-  const renderUploadedList = () => {
-    return currentImages.map((image, index) => {
-      return <UploadedItem key={index}>{image.name}</UploadedItem>;
-    });
-  };
 
   const onDrop = useCallback(
     acceptedFiles => {
@@ -55,5 +49,10 @@ function MyDropzone({ intl, currentImages, setCurrentImages }) {
     </Container>
   );
 }
+
+MyDropzone.propTypes = {
+  currentImages: PropTypes.object,
+  setCurrentImages: PropTypes.func
+};
 
 export default injectIntl(MyDropzone);

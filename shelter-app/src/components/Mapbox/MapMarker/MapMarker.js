@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { MarkerWithLabel } from "react-google-maps/lib/components/addons/MarkerWithLabel";
 
 import {
@@ -28,6 +29,11 @@ const MapMarker = ({ data, handleClick }) => {
       </MarkerWithLabel>
     </>
   );
+};
+
+MapMarker.propTypes = {
+  data: PropTypes.object,
+  handleClick: PropTypes.func
 };
 
 export default MapMarker;
