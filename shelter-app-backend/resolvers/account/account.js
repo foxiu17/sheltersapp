@@ -13,7 +13,7 @@ module.exports = {
       })
       .then(hashedPassword => {
         let account = undefined;
-        if (args.email === "marcin.foks6@wp.pl") {
+        if (args.email === "marcin.foks6@wp.pl" || args.email === "admin.test@test.com") {
           account = new Account({
             email: args.email,
             name: args.name,
