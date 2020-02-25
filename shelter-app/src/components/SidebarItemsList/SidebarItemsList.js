@@ -60,7 +60,7 @@ const SidebarItemsList = ({ data, intl }) => {
 };
 
 SidebarItemsList.propTypes = {
-  data: PropTypes.object,
+  data: PropTypes.array,
   intl: PropTypes.object
 };
 

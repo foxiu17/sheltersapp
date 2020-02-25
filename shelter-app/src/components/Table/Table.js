@@ -21,8 +21,8 @@ const TableWrapper = ({
   headlines,
   data,
   intl,
-  sortColumn,
-  sortDirection
+  sortColumn = 'index',
+  sortDirection = 'DESC'
 }) => {
   const theme = useTheme();
   const [currentSortDirection, setCurrentSortDirection] = useState(
@@ -116,10 +116,10 @@ const TableWrapper = ({
   );
 };
 
-Table.defaultProps = {
-  sortColumn: "index",
-  sortDirection: "DESC"
-};
+// Table.defaultProps = {
+//   sortColumn: 'index',
+//   sortDirection: 'DESC'
+// };
 
 Table.propTypes = {
   headlines: PropTypes.array,
