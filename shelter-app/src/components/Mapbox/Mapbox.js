@@ -1,24 +1,16 @@
 import React, { Fragment } from "react";
-import {
-  withScriptjs,
-  withGoogleMap,
-  GoogleMap,
-} from "react-google-maps";
-import { withRouter } from 'react-router';
+import PropTypes from "prop-types";
+import { withScriptjs, withGoogleMap, GoogleMap } from "react-google-maps";
+import { withRouter } from "react-router";
 
-import { defaultZoom } from '../../assets/const/map';
+import { defaultZoom } from "../../assets/const/map";
 
 import MapMarker from "./MapMarker";
 import MapInfoBox from "./MapInfoBox";
 
 import { MapContainer } from "./Mapbox.style";
 
-const Mapbox = ({
-  center,
-  markers,
-  handleMarkerClick,
-  handleCloseInfoBox
-}) => {
+const Mapbox = ({ center, markers, handleMarkerClick, handleCloseInfoBox }) => {
   return (
     <MapContainer>
       <GoogleMap
@@ -46,6 +38,13 @@ const Mapbox = ({
       </GoogleMap>
     </MapContainer>
   );
+};
+
+Mapbox.propTypes = {
+  center: PropTypes.object,
+  markers: PropTypes.array,
+  handleMarkerClick: PropTypes.func,
+  handleCloseInfoBox: PropTypes.func
 };
 
 export default withRouter(withScriptjs(withGoogleMap(Mapbox)));

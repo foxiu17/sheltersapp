@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 import { useTheme } from "../../ThemeContext";
 
@@ -32,6 +33,13 @@ const Snackbar = ({ text, open, handleClose, color }) => {
       }
     />
   );
+};
+
+Snackbar.propTypes = {
+  text: PropTypes.string,
+  open: PropTypes.bool,
+  handleClose: PropTypes.func,
+  color: PropTypes.string
 };
 
 export default Snackbar;

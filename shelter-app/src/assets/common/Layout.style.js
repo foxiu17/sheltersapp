@@ -48,7 +48,7 @@ export const Span = css``;
 
 export const Link = styled(RouterLink)`
   padding-left: 5px;
-  color: ${props => props.theme.palette.primary.main};
+  color: ${props => props.theme.palette.common.white};
   text-decoration: none;
 `;
 

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Form, Field } from "react-final-form";
 import { injectIntl, FormattedMessage } from "react-intl";
+import PropTypes from "prop-types";
 
 import { useTheme } from "../../ThemeContext";
 import validator, { composeValidators } from "../Validation/";
@@ -21,7 +22,7 @@ import {
 } from "./LoginPanel.style";
 import { TextField } from "../../assets/common/Input.style";
 
-const LoginPanel = ({ onSubmit = () => {}, error, intl }) => {
+const LoginPanel = ({ onSubmit, error, intl }) => {
   const [hidePassword] = useState(true);
   const theme = useTheme();
 
@@ -127,6 +128,16 @@ const LoginPanel = ({ onSubmit = () => {}, error, intl }) => {
       />
     </Paper>
   );
+};
+
+LoginPanel.defaultProps = {
+  onSubmit: () => {}
+};
+
+LoginPanel.propTypes = {
+  onSubmit: PropTypes.func,
+  error: PropTypes.element,
+  intl: PropTypes.object
 };
 
 export default injectIntl(LoginPanel);

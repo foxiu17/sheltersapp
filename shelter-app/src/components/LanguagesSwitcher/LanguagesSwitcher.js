@@ -8,7 +8,7 @@ import en from "../../assets/images/countries/EN.png";
 
 import { Icon, IconsBox } from "./LanguagesSwitcher.style";
 
-const LanguagesSwitcher = ({ intl }) => {
+const LanguagesSwitcher = () => {
   const { switchLanguage } = useContext(IntlContext);
 
   const handleChange = language => {

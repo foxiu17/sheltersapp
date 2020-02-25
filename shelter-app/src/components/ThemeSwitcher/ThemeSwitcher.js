@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { injectIntl } from "react-intl";
+import PropTypes from "prop-types";
 
 import { ThemeContext, useTheme } from "../../ThemeContext";
 
@@ -28,6 +29,10 @@ const ThemeSwitcher = ({ intl }) => {
       theme={theme}
     />
   );
+};
+
+ThemeSwitcher.propTypes = {
+  intl: PropTypes.object
 };
 
 export default injectIntl(ThemeSwitcher);

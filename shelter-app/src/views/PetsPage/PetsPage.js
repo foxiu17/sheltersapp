@@ -52,7 +52,6 @@ const PetsPage = ({ intl, location, match }) => {
   });
 
   const getFilteredPets = (values, city, voivodeship, genre, age) => {
-    console.log("values", values);
     setVariables({
       type: genre ? genre.toString() : undefined,
       voivodeship: voivodeship
@@ -98,7 +97,6 @@ const PetsPage = ({ intl, location, match }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pathname]);
 
-  console.log("PETS: ", data);
   return (
     <>
       <Helmet title={intl.formatMessage({ id: "APP_TITLE.PETS_PAGE" })} />

@@ -3,6 +3,8 @@ import { withRouter } from "react-router";
 import { injectIntl } from "react-intl";
 import { useQuery } from "@apollo/react-hooks";
 
+import { config } from "../../config";
+
 import { useTheme } from "../../ThemeContext";
 
 import { GET_SHELTERS } from "./RootPage.query";
@@ -72,7 +74,7 @@ const RootPage = ({ intl }) => {
           })}
         {data && (
           <Mapbox
-            googleMapURL={googleMapUrl}
+            googleMapURL={`https://maps.googleapis.com/maps/api/js?key=AIzaSyDekrf2bx2vOiVUKSRbQuLQOqR86UYQHwA&v=3.exp&libraries=geometry,drawing,places`}
             loadingElement={<div style={{ width: "100%", height: `100%` }} />}
             containerElement={
               <div

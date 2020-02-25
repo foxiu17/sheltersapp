@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 import { useTheme } from "../../ThemeContext";
 
@@ -11,6 +12,7 @@ const ChipWrapper = ({ label, prop, handleDelete }) => {
   const handleChipDelete = () => {
     handleDelete(label, prop);
   };
+
   return (
     <Chip
       icon={<Search />}
@@ -21,6 +23,12 @@ const ChipWrapper = ({ label, prop, handleDelete }) => {
       color="primary"
     />
   );
+};
+
+ChipWrapper.propTypes = {
+  label: PropTypes.string,
+  prop: PropTypes.string,
+  handleDelete: PropTypes.func
 };
 
 export default ChipWrapper;

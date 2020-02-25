@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Form, Field } from "react-final-form";
 import { injectIntl, FormattedMessage } from "react-intl";
+import PropTypes from "prop-types";
 
 import { useTheme } from "../../ThemeContext";
 import validator, { composeValidators } from "../Validation/";
@@ -11,15 +12,11 @@ import {
   FormBox,
   ButtonBox,
   Button,
-  ExtraText,
-  ErrorBox,
-  ErrorNotification,
-  ErrorLabel,
-  Link
+  ErrorLabel
 } from "./ContactForm.style";
 import { TextField } from "../../assets/common/Input.style";
 
-const ContactForm = ({ intl, userEmail = "", handleSubmit = () => {} }) => {
+const ContactForm = ({ intl, userEmail, handleSubmit }) => {
   const theme = useTheme();
   const [email] = useState(userEmail);
 
@@ -138,6 +135,17 @@ const ContactForm = ({ intl, userEmail = "", handleSubmit = () => {} }) => {
       />
     </Paper>
   );
+};
+
+ContactForm.defaultProps = {
+  userEmail: "",
+  handleSubmit: () => {}
+};
+
+ContactForm.propTypes = {
+  intl: PropTypes.object,
+  userEmail: PropTypes.string,
+  handleSubmit: PropTypes.func
 };
 
 export default injectIntl(ContactForm);

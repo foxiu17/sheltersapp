@@ -51,8 +51,6 @@ const SheltersPage = ({ intl }) => {
       [prop]: undefined
     });
   };
-
-  console.log("SHELTERS: ", data);
   return (
     <>
       <Helmet title={intl.formatMessage({ id: "APP_TITLE.SHELTERS_PAGE" })} />

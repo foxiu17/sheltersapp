@@ -1,7 +1,7 @@
 import React from "react";
 import { withRouter } from "react-router";
+import PropTypes from "prop-types";
 import { FormattedMessage, injectIntl } from "react-intl";
-import { makeStyles } from "@material-ui/core/styles";
 import { Image } from "cloudinary-react";
 
 import { useTheme } from "../../ThemeContext";
@@ -23,7 +23,7 @@ import {
   Span,
   Strong
 } from "./ItemCard.style";
-import { Typography, Link } from "../../assets/common/Layout.style";
+import { Link } from "../../assets/common/Layout.style";
 import { Button } from "../../assets/common/Button.style";
 
 const ItemCard = ({ data, match, favorite, handleClick, userType }) => {
@@ -56,7 +56,7 @@ const ItemCard = ({ data, match, favorite, handleClick, userType }) => {
         ) : (
           <CardMedia component="div" title={data ? name : "Pet"}>
             <Image
-              cloudName={process.env.REACT_APP_CLOUDINARY_NAME}
+              cloudName="foxsheltersappimages"
               publicId={images.publicId}
               crop="scale"
             />
@@ -139,7 +139,7 @@ const ItemCard = ({ data, match, favorite, handleClick, userType }) => {
         )}
       </CardContent>
       <CardActions theme={theme}>
-        <Button color="primary" theme={theme}>
+        <Button color="inherit" theme={theme}>
           <Link
             to={
               path.toString() === "/pets-page" ||
@@ -159,5 +159,13 @@ const ItemCard = ({ data, match, favorite, handleClick, userType }) => {
     </Card>
   );
 };
+
+ItemCard.propTypes = {
+  data: PropTypes.object,
+  match: PropTypes.object,
+  favorite: PropTypes.bool,
+  handleClick: PropTypes.func,
+  userType: PropTypes.number
+}
 
 export default withRouter(injectIntl(ItemCard));

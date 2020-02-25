@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { injectIntl } from "react-intl";
 
 import { useTheme } from "../../ThemeContext";
@@ -56,6 +57,11 @@ const SidebarItemsList = ({ data, intl }) => {
       })}
     </List>
   );
+};
+
+SidebarItemsList.propTypes = {
+  data: PropTypes.array,
+  intl: PropTypes.object
 };
 
 export default injectIntl(SidebarItemsList);

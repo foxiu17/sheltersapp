@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Form, Field } from "react-final-form";
 import { injectIntl, FormattedMessage } from "react-intl";
 import { useMutation } from "@apollo/react-hooks";
+import PropTypes from "prop-types";
 
 import { useTheme } from "../../ThemeContext";
 
@@ -27,7 +28,7 @@ import IconButton from "@material-ui/core/IconButton";
 import Visibility from "@material-ui/icons/Visibility";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
 
-const SignUpPanel = ({ onSubmit = () => {}, intl }) => {
+const SignUpPanel = ({ onSubmit, intl }) => {
   const theme = useTheme();
   const [hidePassword, setHidePassword] = useState(true);
   const [hideConfirmPassword, setHideConfirmPassword] = useState(true);
@@ -258,6 +259,15 @@ const SignUpPanel = ({ onSubmit = () => {}, intl }) => {
       />
     </Paper>
   );
+};
+
+SignUpPanel.defaultProps = {
+  onSubmit: () => {}
+};
+
+SignUpPanel.propTypes = {
+  onSubmit: PropTypes.func,
+  intl: PropTypes.object
 };
 
 export default injectIntl(SignUpPanel);

@@ -1,5 +1,6 @@
 import React from "react";
 import Slider from "react-slick";
+import PropTypes from "prop-types";
 import { Image } from "cloudinary-react";
 
 import { ImageBox, CustomImage } from "./Gallery.style";
@@ -41,7 +42,7 @@ const Gallery = ({ images }) => {
           <ImageBox key={index}>
             {images !== undefined ? (
               <Image
-                cloudName={process.env.REACT_APP_CLOUDINARY_NAME}
+                cloudName="foxsheltersappimages"
                 publicId={images.publicId}
                 crop="scale"
               />
@@ -53,6 +54,10 @@ const Gallery = ({ images }) => {
       })}
     </Slider>
   );
+};
+
+Gallery.propTypes = {
+  images: PropTypes.object
 };
 
 export default Gallery;
